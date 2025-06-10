@@ -216,6 +216,7 @@ header {
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     gap: 20px; /* Espacio entre elementos */
+    margin-top: -55px;
 }
 
 /* Estilos para el texto del total del carrito */
@@ -362,4 +363,30 @@ footer {
     margin-top: 100px; /* Margen superior */
     padding: 10px 20px; /* Relleno */
     text-align: center; /* Alineación del texto */
+}
+
+
+.notificacion {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #2E7D32;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notificacion.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.notificacion.show {
+  opacity: 1;
+  transform: translateY(0);
 }

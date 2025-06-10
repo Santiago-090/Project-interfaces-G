@@ -54,7 +54,7 @@ productsList.addEventListener("click", (e) => {
       allProducts = [...allProducts, infoProduct];
     }
 
-    showHTML();
+     mostrarNotificacion(); showHTML();
   }
 });
 
@@ -66,9 +66,11 @@ rowProduct.addEventListener("click", (e) => {
 
     allProducts = allProducts.filter((product) => product.title !== title);
 
-    console.log(allProducts);
+    // console.log(allProducts);
 
-    showHTML();
+    mostrarNotificacion(); showHTML();
+     mostrarMensajeEliminacion(`"${title}" fue eliminado del carrito.`);
+
   }
 });
 
@@ -153,6 +155,55 @@ function irAPagina_Detalles_perfumeria() {
 }
 
 function irAPagina_pago() {
-  // Redireccionar a página2.html
+  if (allProducts.length === 0) {
+    mostrarMensajeError("Debes añadir al menos un producto al carrito antes de pagar.");
+    return;
+  }
+
   window.location.href = "pago.html";
+}
+
+
+
+function mostrarNotificacion() {
+  const noti = document.getElementById("notificacion");
+  noti.classList.remove("hidden");
+  noti.classList.add("show");
+
+  setTimeout(() => {
+    noti.classList.remove("show");
+    noti.classList.add("hidden");
+  }, 5000); // Ocultar después de 2 segundos
+}
+
+function mostrarMensajeError(texto) {
+  const noti = document.getElementById("notificacion");
+  noti.innerText = texto;
+  noti.style.backgroundColor = "#E53935"; // rojo
+  noti.classList.remove("hidden");
+  noti.classList.add("show");
+
+  setTimeout(() => {
+    noti.classList.remove("show");
+    noti.classList.add("hidden");
+    noti.innerText = "Producto añadido al carrito 🛒";
+    noti.style.backgroundColor = "#2E7D32"; // vuelve al verde
+  }, 5000);
+}
+
+
+
+function mostrarMensajeEliminacion(texto) {
+  const noti = document.getElementById("notificacion");
+  noti.innerText = texto;
+  noti.style.backgroundColor = "#FFA000"; // color ámbar
+  noti.classList.remove("hidden");
+  noti.classList.add("show");
+
+  setTimeout(() => {
+    noti.classList.remove("show");
+    noti.classList.add("hidden");
+    noti.innerText = "Producto añadido al carrito 🛒";
+    noti.style.backgroundColor = "#2E7D32"; // restablece a verde
+  }, 5000);
 }
