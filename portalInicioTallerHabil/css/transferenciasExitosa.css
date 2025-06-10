@@ -1,0 +1,90 @@
+/* Restablece márgenes, rellenos y establece el modelo de caja para todos los elementos y pseudo-elementos */
+*,
+*::before,
+*::after {
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina rellenos */
+  box-sizing: border-box; /* Incluye bordes y rellenos en el tamaño total del elemento */
+}
+
+/* Estilos para el cuerpo del documento */
+body {
+  height: 100vh; /* Altura de la ventana gráfica */
+  background-color: #ffffff; /* Color de fondo gris claro */
+  display: grid; /* Utiliza grid layout */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #000;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Estilo del título */
+.top-bar h1 {
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  color: #ffffff;
+  margin: 10px;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  position: relative;
+  justify-content: center;
+  font-family: Arial, sans-serif; /* Fuente personalizada */
+  font-size: 25px; /* Tamaño de fuente */
+  max-width: 600px; /* Ancho máximo del contenedor */
+  margin: 30px auto; /* Márgenes superior/inferior y centrado horizontal */
+  padding: 20px; /* Relleno */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra del contenedor */
+  color: #1a1a1a; /* Color del texto */
+  text-align: center; /* Centra el texto */
+}
+
+/* Estilos para los subtítulos h2 */
+h2 {
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos para los párrafos */
+p {
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos para las imágenes */
+img {
+  width: 80px; /* Ancho de la imagen */
+  height: 80px; /* Altura de la imagen */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/* Estilos para el botón de dirigir a la factura */
+.btn-DirigirFactura {
+  border: none;
+  width: 120px; /* Ancho del botón */
+  height: 40px; /* Altura del botón */
+  font-family: Arial, sans-serif;; /* Fuente personalizada */
+  font-size: 20px; /* Tamaño de fuente */
+  background-color: #0077cc; /* Fondo negro */
+  color: #ffffff; /* Color del texto blanco */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilos para el botón al pasar el ratón por encima */
+.btn-DirigirFactura:hover {
+  box-shadow: 0 0 10px rgba(148, 147, 147, 0.904); /* Sombra del botón */
+  transition: 0.2s; /* Transición suave */
+  background-color: #005b99; /* Fondo verde */
+}

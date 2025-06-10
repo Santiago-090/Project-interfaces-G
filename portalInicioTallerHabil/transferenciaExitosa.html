@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URBANSTREET</title>
+    <!-- se hace un link para conectar los estilos del css -->
+    <link rel="stylesheet" href="./css/transferenciasExitosa.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1>Transferencias Urban Street</h1>
+    </header>
+    <!-- aqui se hace el contenedor con el mensaje de la transferencia exitosa -->
+    <div class="container">
+      <h2>¡Transferencia exitosa!</h2>
+      <img class="background" src="./fotos ropa/bien.png" alt="" />
+      <p>
+        La transferencia se ha ralizado con exito. Ahora puedes recibir tu
+        factura
+      </p>
+      <!-- aqui se hace un boton que manda al usuario a la factura -->
+      <button
+        onclick="irAPagina_factura()"
+        type="submit"
+        class="btn-DirigirFactura"
+      >
+        Factura
+      </button>
+    </div>
+
+    <script>
+      // se hace una funcion para mandar al usuario a la factura al momento de darle click al boton 
+      function irAPagina_factura() {
+        window.location.href = "factura.html";
+      }
+    </script>
+  </body>
+</html>

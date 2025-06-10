@@ -1,0 +1,211 @@
+/* Importa la fuente 'Inter' desde Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+/* Estilos generales para todos los elementos, y sus pseudoelementos ::before y ::after */
+*,
+*::before,
+*::after {
+  margin: 0; /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el padding por defecto */
+  box-sizing: border-box; /* Define el box model para incluir padding y borde en el tamaño total */
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+  font-family: Arial, sans-serif; /* Fuente principal de la página */
+  height: 60vh; /* Altura del viewport */
+  color: white; /* Color de texto blanco */
+  background-color: #ffffff; /* Fondo blanco */
+  display: grid; /* Usa display grid */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  margin-top: 100px; /* Margen superior */
+}
+
+/* Estilos para las imágenes */
+img {
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Altura completa */
+  display: block; /* Display en bloque */
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  margin-top: -1350px; /* Margen superior negativo */
+  width: 100%; /* Ancho completo */
+  width: 820px; /* Ancho fijo */
+  height: 340px; /* Altura fija */
+  display: flex; /* Flexbox */
+  gap: 10px; /* Espacio entre elementos */
+  margin-inline: 500px; /* Margen horizontal */
+}
+
+/* Estilos para las tarjetas */
+.card {
+  min-width: 70px; /* Ancho mínimo */
+  height: 100%; /* Altura completa */
+  border-radius: 30px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta el desbordamiento */
+  display: flex; /* Flexbox */
+  align-items: flex-end; /* Alinea elementos al final */
+  flex-grow: 1; /* Crece para ocupar espacio disponible */
+  cursor: pointer; /* Cambia el cursor al pasar */
+  position: relative; /* Posición relativa */
+  transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Transición suave */
+  --transition-timing: 0.35s; /* Variable de tiempo de transición */
+}
+
+/* Aumenta el tamaño de la tarjeta al pasar el ratón */
+.card:hover {
+  flex-grow: 7; /* Crece más al pasar el ratón */
+}
+
+/* Estilos para la imagen de fondo de la tarjeta */
+.card > .background {
+  position: absolute; /* Posición absoluta */
+  inset: 0; /* Posicionamiento dentro de los bordes del contenedor */
+  object-fit: cover; /* Ajusta la imagen al contenedor */
+  object-position: center; /* Centra la imagen */
+  filter: brightness(0.4); /* Oscurece la imagen */
+  z-index: -1; /* Envía la imagen detrás del contenido */
+  transition: var(--transition-timing) ease; /* Transición suave */
+}
+
+/* Aumenta el brillo de la imagen al pasar el ratón */
+.card:hover > .background {
+  filter: brightness(1); /* Brillo normal */
+}
+
+/* Estilos para el contenido de la tarjeta */
+.card > .card-content {
+  display: flex; /* Flexbox */
+  align-items: center; /* Centra verticalmente */
+  position: absolute; /* Posición absoluta */
+  left: 10px; /* Desplazamiento desde la izquierda */
+  right: 10px; /* Desplazamiento desde la derecha */
+  bottom: 20px; /* Desplazamiento desde abajo */
+  overflow: hidden; /* Oculta el desbordamiento */
+  transition: var(--transition-timing); /* Transición suave */
+  z-index: 10; /* Nivel de apilamiento alto */
+}
+
+/* Ajusta el contenido al pasar el ratón */
+.card:hover > .card-content {
+  inset: 20px; /* Desplazamiento desde todos los lados */
+  top: auto; /* Anula la posición superior */
+}
+
+/* Transición para todos los elementos del contenido */
+.card-content > * {
+  transition: var(--transition-timing); /* Transición suave */
+}
+
+/* Estilos para la imagen de perfil en la tarjeta */
+.card-content > .profile-image {
+  min-width: 50px; /* Ancho mínimo */
+  max-width: 50px; /* Ancho máximo */
+  height: 50px; /* Altura fija */
+  border: 1px solid #ffffff; /* Borde blanco */
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  border-radius: 50%; /* Bordes redondeados */
+  overflow: hidden; /* Oculta el desbordamiento */
+}
+
+/* Cambia el color del borde al pasar el ratón */
+.card:hover .profile-image {
+  border: 1px solid #0077CC; /* Borde verde amarillento */
+}
+
+/* Estilos para los SVG dentro de la imagen de perfil */
+.profile-image > svg {
+  stroke: #ffffff; /* Color de trazo blanco */
+}
+
+.bi-info-lg:hover {
+  fill: #ffffff;
+}
+
+/* Cambia el color del SVG al pasar el ratón */
+.card:hover .profile-image > svg {
+  stroke: #005B99; /* Color de trazo verde amarillento */
+}
+
+/* Estilos para el título en la tarjeta */
+.card-content > .title {
+  white-space: pre; /* Evita el colapso de espacios en blanco */
+  margin-left: 10px; /* Margen izquierdo */
+  translate: 0 100%; /* Traducción fuera de la vista */
+  opacity: 0; /* Invisibilidad inicial */
+}
+
+/* Hace visible el título al pasar el ratón */
+.card:hover .title {
+  opacity: 1; /* Visibilidad */
+  translate: 0 0; /* Traducción a la posición original */
+}
+
+/* Estilos para el fondo de la tarjeta */
+.card > .backdrop {
+  position: absolute; /* Posición absoluta */
+  left: 0; /* Desplazamiento desde la izquierda */
+  right: 0; /* Desplazamiento desde la derecha */
+  bottom: 0; /* Desplazamiento desde abajo */
+  height: 100px; /* Altura fija */
+  z-index: 0; /* Nivel de apilamiento bajo */
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7)); /* Gradiente de fondo */
+}
+
+/* Parte de la barra superior */
+
+/* Estilos para el encabezado principal */
+/* Contenedor principal de la barra */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #000;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.sub-titulo{
+  color: #000;
+  text-align: center;
+}
+
+/* Estilo del título */
+.top-bar h1 {
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Estilos para el icono del administrador */
+.icon-admin {
+  width: 30px; /* Ancho fijo */
+  height: 30px; /* Altura fija */
+  margin-left: 1500px; /* Margen izquierdo grande */
+  margin-bottom: 900px; /* Margen inferior grande */
+  stroke: black; /* Color de trazo negro */
+  background-color: white; /* Fondo blanco */
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon-admin {
+    margin-top: 1px;
+  }
+}

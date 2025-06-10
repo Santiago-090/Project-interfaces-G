@@ -1,0 +1,111 @@
+/* Estilos globales para el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif; /* Fuente predeterminada */
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 0; /* Elimina rellenos predeterminados */
+    background-color: #ffffff; /* Color de fondo blanco */
+}
+
+/* Estilos para el encabezado h1 */
+h1 {
+    font-family: Arial, sans-serif;; /* Fuente personalizada */
+    font-size: 40px; /* Tamaño de fuente grande */
+    margin: 0 auto; /* Centra horizontalmente */
+    width: 100%; /* Ancho completo */
+    background-color: rgb(0, 0, 0); /* Fondo negro */
+    color: #ffffff; /* Color del texto verde amarillento */
+    text-align: center; /* Centra el texto */
+    padding: 24.5px 0; /* Relleno superior e inferior */
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h3{
+    text-align: center;
+    margin-top: -40px;
+}
+
+
+/* Estilos para el contenedor principal */
+.container-wrapper {
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    margin: 50px 0; /* Márgenes superior e inferior */
+}
+
+/* Estilos compartidos para los contenedores */
+.container, .container2 {
+    border-radius: 30px; /* Bordes redondeados */
+    display: flex; /* Utiliza flexbox */
+    flex-direction: column; /* Flexbox en columna */
+    align-items: center; /* Centra horizontalmente */
+    font-family: Arial, sans-serif; /* Fuente personalizada */
+    background-color: rgb(0, 0, 0); /* Fondo negro */
+    color: #ffffff; /* Color del texto verde amarillento */
+    margin: 20px; /* Márgenes */
+    padding: 20px; /* Relleno */
+    width: 300px; /* Ancho fijo */
+    height: auto; /* Altura automática */
+    position: relative; /* Posición relativa */
+}
+
+/* Estilos específicos para el segundo contenedor */
+.container2 {
+    background-color: black; /* Fondo negro */
+    color: #ffffff; /* Color del texto verde amarillento */
+}
+
+/* Estilos para las secciones de texto */
+.text-section {
+    text-align: center; /* Centra el texto */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para los textos específicos */
+.text1, .text2 {
+    margin: 0; /* Elimina márgenes */
+}
+
+/* Estilos para las imágenes dentro de los contenedores */
+.container img, .container2 img {
+    cursor: pointer; /* Cambia el cursor a puntero */
+    height: 150px; /* Altura fija */
+    width: 250px; /* Ancho fijo */
+}
+
+/* Estilos para el contenedor de imágenes */
+.image-container {
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%; /* Ancho completo */
+    margin-top: 20px; /* Margen superior */
+}
+
+/* Estilos para las imágenes dentro del contenedor de imágenes */
+.image-container img {
+    max-width: 100%; /* Ancho máximo completo */
+    height: auto; /* Altura automática */
+}
+
+/* Estilos para los logotipos específicos de Daviplata y Bancolombia */
+.daviplata.logo, .bancolombia.logo {
+    border-radius: 30px; /* Bordes redondeados */
+    margin-top: 10px; /* Margen superior */
+}
+
+/* Estilos específicos para el logotipo de Daviplata */
+.daviplata.logo {
+    height: 150px; /* Altura fija */
+    width: 250px; /* Ancho fijo */
+}
+
+/* Estilos específicos para el logotipo de Bancolombia */
+.bancolombia.logo {
+    height: 150px; /* Altura fija */
+    width: 200px; /* Ancho fijo */
+}

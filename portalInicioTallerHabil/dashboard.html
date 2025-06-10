@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Enlace al archivo CSS para estilos personalizados -->
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- Enlace a la biblioteca Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head> 
+<body>
+
+<!-- Contenedor principal del menú del dashboard -->
+<div class="menu-dashboard" id="menuDashboard">
+    <!-- Sección superior del menú -->
+    <div class="top-menu">
+        <div class="logo">
+            <!-- Logotipo del dashboard -->
+            <img src="https://cdn-icons-png.flaticon.com/128/1721/1721923.png" alt="">
+            <span>Urban Street Admin</span>
+        </div>
+        <!-- Botón para colapsar o expandir el menú -->
+        <div class="toggle" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+    <!-- Opciones del menú -->
+    <div class="menu">
+        <div class="enlace" onclick="irAPagina_indice()">
+            <i class="fa fa-list"></i>
+            <span>Menú</span>
+        </div>
+        <div class="enlace" onclick="toggleCategories()">
+            <i class="fa fa-th-large"></i>
+            <span>Categoría</span>
+        </div>
+        <div class="enlace" onclick="toggleProductos()">
+            <i class="fa fa-shopping-cart"></i>
+            <span>Producto</span>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de categorías, oculta por defecto -->
+<div class="categorias" id="categorias" style="display: none;">
+    <!-- Botón para abrir el modal de agregar categoría -->
+    <button class="btn-agregar" onclick="openModal('categoriaModal')">Agregar Categoría</button>
+    <!-- Tabla para listar las categorías -->
+    <table id="tablaCategorias">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody id="categoriaListaTabla">
+            <!-- Aquí se generan dinámicamente las categorías -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Sección de productos, oculta por defecto -->
+<div class="productos" id="productos" style="display: none;">
+    <!-- Botón para abrir el modal de agregar producto -->
+    <button class="btn-agregar" onclick="openModal('productoModal')">Agregar Producto</button>
+    <!-- Tabla para listar los productos -->
+    <table id="tablaProductos">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Categoría</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody id="productoListaTabla">
+            <!-- Aquí se generan dinámicamente los productos -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal para agregar una nueva categoría -->
+<div class="modal" id="categoriaModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('categoriaModal')">&times;</span>
+        <h2>Agregar Nueva Categoría</h2>
+        <!-- Formulario para agregar una nueva categoría -->
+         <p class="img-product">Seleccione la imagen de la cetegoria</p>
+        <input type="file" id="imagenCategoriaInput" accept="image/*">
+        <input type="text" id="idInput" placeholder="ID">
+        <input type="text" id="nombreInput" placeholder="Nombre">
+        <button onclick="agregarCategoria()">Agregar</button>
+    </div>
+</div>
+
+<!-- Modal para agregar un nuevo producto -->
+<div class="modal" id="productoModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('productoModal')">&times;</span>
+        <h2>Agregar los Datos del Producto</h2>
+        <!-- Formulario para agregar un nuevo producto -->
+         <p class="img-product">Seleccione la imagen del producto</p>
+        <input type="file" id="imagenInput" accept="image/*">
+        <input type="text" id="nombreProductoInput" placeholder="Nombre">
+        <input type="text" id="descripcionInput" placeholder="Descripción">
+        <input type="number" id="precioInput" placeholder="Precio">
+        <input type="number" id="cantidadInput" placeholder="Cantidad">
+        <input type="text" id="categoriaProductoInput" placeholder="Categoría">
+        <button onclick="agregarProducto()">Agregar</button>
+    </div>
+</div>
+
+<!-- Enlace al archivo JavaScript para la funcionalidad del dashboard -->
+<script src="./javascript/app.js"></script>
+
+</body>
+</html>
