@@ -69,7 +69,7 @@ rowProduct.addEventListener("click", (e) => {
     // console.log(allProducts);
 
     mostrarNotificacion(); showHTML();
-     mostrarMensajeEliminacion(`"${title}" fue eliminado del carrito.`);
+    mostrarMensajeEliminacion(`"${title}" fue eliminado del carrito.`);
 
   }
 });

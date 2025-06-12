@@ -1,3 +1,6 @@
+ // Variable de arreglos de Productos
+let allProducts = [];
+
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener elementos relevantes del DOM
     const btnCart = document.querySelector('.container-cart-icon');
@@ -10,9 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const cartTotal = document.querySelector('.cart-total');
     const valorTotal = document.querySelector('.total-pagar');
     const countProducts = document.querySelector('#contador-productos');
-
-    // Variable de arreglos de Productos
-    let allProducts = [];
 
     // Cantidad máxima permitida para agregar al carrito
     const CANTIDAD_MAXIMA = document.querySelector('.Cantidades').textContent;
@@ -36,28 +36,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // se hace la condicion para tener un limite de añadir al carrito 
             if (exists) {
+                let excede = false;
                 const products = allProducts.map(product => {
-                    if (product.title === infoProduct.title) {
-                        if (product.quantity + cantidad <= CANTIDAD_MAXIMA) {
-                            product.quantity += cantidad;
-                        } else {
-                            alert(`No puedes añadir más de ${CANTIDAD_MAXIMA} unidades de este producto disponibles.`);
-                        }
+                if (product.title === infoProduct.title) {
+                    if (product.quantity + cantidad <= parseInt(CANTIDAD_MAXIMA)) {
+                        product.quantity += cantidad;
+            }   else {
+                excede = true;
                     }
-                    return product;
+                }
+                return product;
                 });
-                allProducts = [...products];
+
+                if (excede) {
+                    mostrarNotificacion(`No puedes añadir más de ${CANTIDAD_MAXIMA} unidades disponibles.`, "#E53935");
+                    return; // <- importante para evitar mostrar 'añadido' si no se añadió
+                }
+
+            allProducts = [...products];
             } else {
-                if (cantidad <= CANTIDAD_MAXIMA) {
+                if (cantidad <= parseInt(CANTIDAD_MAXIMA)) {
                     allProducts.push(infoProduct);
                 } else {
-                    alert(`No puedes añadir más de ${CANTIDAD_MAXIMA} unidades de este producto disponibles.`);
+                    mostrarNotificacion(`No puedes añadir más de ${CANTIDAD_MAXIMA} unidades disponibles.`, "#E53935");
+                    return;
                 }
             }
 
-            showHTML();
+            mostrarNotificacion("Producto añadido al carrito 🛒", "#2E7D32"); showHTML();
         } else {
-            alert(`Por favor, ingrese una cantidad de los productos disponibles en la descripcion`);
+            mostrarMensajeError(`Por favor, ingrese una cantidad de los productos disponibles en la descripcion`, "#E53935");
         }
     });
 
@@ -131,6 +139,34 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 });
 
+function mostrarNotificacion(texto, colorFondo) {
+    const noti = document.getElementById("notificacion");
+    noti.innerText = texto;
+    noti.style.backgroundColor = colorFondo;
+    noti.classList.remove("hidden");
+    noti.classList.add("show");
+
+    setTimeout(() => {
+        noti.classList.remove("show");
+        noti.classList.add("hidden");
+    }, 3000);
+}
+
+function mostrarMensajeError(texto) {
+  const noti = document.getElementById("notificacion");
+  noti.innerText = texto;
+  noti.style.backgroundColor = "#E53935";
+  noti.classList.remove("hidden");
+  noti.classList.add("show");
+
+  setTimeout(() => {
+    noti.classList.remove("show");
+    noti.classList.add("hidden");
+    noti.innerText = "Producto añadido al carrito 🛒";
+    noti.style.backgroundColor = "#2E7D32";
+  }, 3000);
+}
+
 
 // se hace una funcion para mandar al usuario a la pagina principal 
 function irAPagina_indice() {
@@ -139,7 +175,10 @@ function irAPagina_indice() {
 
 // se hace una funcion para mandar al usuario a el formulario de pago 
 function irAPagina_pago() {
+    if (allProducts.length === 0) {
+        mostrarMensajeError("No hay productos en el carrito. Agrega uno antes de pagar.", "#E53935");
+        return;
+    }
+
     window.location.href = "pago.html";
-  }
-
-
+}
