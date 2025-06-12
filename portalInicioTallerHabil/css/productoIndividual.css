@@ -553,6 +553,7 @@ header {
 }
 
 
+/* estilos de los mensajes de error */
 .notificacion {
   position: fixed;
   bottom: 30px;

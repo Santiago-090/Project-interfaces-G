@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="./css/estilos.css">
     <!-- Enlace a la biblioteca Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head> 
-<body>
+</head>
+<!-- mensaje de error  -->
+<div id="notificacion" class="notificacion hidden">Mensaje</div>
+<body> 
 
 <!-- Contenedor principal del menú del dashboard -->
 <div class="menu-dashboard" id="menuDashboard">
@@ -91,11 +93,24 @@
         <span class="close" onclick="closeModal('categoriaModal')">&times;</span>
         <h2>Agregar Nueva Categoría</h2>
         <!-- Formulario para agregar una nueva categoría -->
-         <p class="img-product">Seleccione la imagen del producto</p>
-        <input type="file" id="imagenCategoriaInput" accept="image/*">
-        <input type="text" id="idInput" placeholder="ID">
-        <input type="text" id="nombreInput" placeholder="Nombre">
-        <button onclick="agregarCategoria()">Agregar</button>
+        <div class="field-group">
+  <p class="img-product">Seleccione la imagen de la categoría</p>
+  <input type="file" id="imagenCategoriaInput" accept="image/*">
+  <div class="error-message" id="error-imagenCategoriaInput"></div>
+</div>
+
+<div class="field-group">
+  <input type="text" id="idInput" placeholder="ID">
+  <div class="error-message" id="error-idInput"></div>
+</div>
+
+<div class="field-group">
+  <input type="text" id="nombreInput" placeholder="Nombre">
+  <div class="error-message" id="error-nombreInput"></div>
+</div>
+
+<button onclick="agregarCategoria()">Agregar</button>
+
     </div>
 </div>
 
@@ -105,14 +120,39 @@
         <span class="close" onclick="closeModal('productoModal')">&times;</span>
         <h2>Agregar los Datos del Producto</h2>
         <!-- Formulario para agregar un nuevo producto -->
-         <p class="img-product">Seleccione la imagen del producto</p>
-        <input type="file" id="imagenInput" accept="image/*">
-        <input type="text" id="nombreProductoInput" placeholder="Nombre">
-        <input type="text" id="descripcionInput" placeholder="Descripción">
-        <input type="number" id="precioInput" placeholder="Precio">
-        <input type="number" id="cantidadInput" placeholder="Cantidad">
-        <input type="text" id="categoriaProductoInput" placeholder="Categoría">
-        <button onclick="agregarProducto()">Agregar</button>
+        <div class="field-group">
+            <p class="img-product">Seleccione la imagen del producto</p>
+            <input type="file" id="imagenInput" accept="image/*">
+        <div class="error-message" id="error-imagenInput"></div>
+        </div>
+
+        <div class="field-group">
+            <input type="text" id="nombreProductoInput" placeholder="Nombre">
+            <div class="error-message" id="error-nombreProductoInput"></div>
+        </div>
+
+        <div class="field-group">
+            <input type="text" id="descripcionInput" placeholder="Descripción">
+            <div class="error-message" id="error-descripcionInput"></div>
+        </div>
+
+        <div class="field-group">
+            <input type="number" id="precioInput" placeholder="Precio">
+            <div class="error-message" id="error-precioInput"></div>
+        </div>
+
+        <div class="field-group">
+            <input type="number" id="cantidadInput" placeholder="Cantidad">
+            <div class="error-message" id="error-cantidadInput"></div>
+        </div>
+
+        <div class="field-group">
+            <input type="text" id="categoriaProductoInput" placeholder="Categoría">
+            <div class="error-message" id="error-categoriaProductoInput"></div>
+        </div>
+
+<button onclick="agregarProducto()">Agregar</button>
+
     </div>
 </div>
 

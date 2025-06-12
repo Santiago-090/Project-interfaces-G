@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 });
 
+// funcion para la notificacion
 function mostrarNotificacion(texto, colorFondo) {
     const noti = document.getElementById("notificacion");
     noti.innerText = texto;
@@ -152,6 +153,7 @@ function mostrarNotificacion(texto, colorFondo) {
     }, 3000);
 }
 
+// funcion de la notificacion del error 
 function mostrarMensajeError(texto) {
   const noti = document.getElementById("notificacion");
   noti.innerText = texto;

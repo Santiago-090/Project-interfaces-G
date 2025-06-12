@@ -154,6 +154,7 @@ function irAPagina_Detalles_perfumeria() {
   window.location.href = "producto-individual-perfumeria.html";
 }
 
+// funcion para validar si el carrito tiene productos 
 function irAPagina_pago() {
   if (allProducts.length === 0) {
     mostrarMensajeError("Debes añadir al menos un producto al carrito antes de pagar.");
@@ -164,7 +165,7 @@ function irAPagina_pago() {
 }
 
 
-
+// funcion para mostrar la notificacion 
 function mostrarNotificacion() {
   const noti = document.getElementById("notificacion");
   noti.classList.remove("hidden");
@@ -176,6 +177,7 @@ function mostrarNotificacion() {
   }, 5000); // Ocultar después de 2 segundos
 }
 
+// funcion para mostrar el mensaje de error 
 function mostrarMensajeError(texto) {
   const noti = document.getElementById("notificacion");
   noti.innerText = texto;
@@ -192,7 +194,7 @@ function mostrarMensajeError(texto) {
 }
 
 
-
+// funcion de Notificacion de eliminacion 
 function mostrarMensajeEliminacion(texto) {
   const noti = document.getElementById("notificacion");
   noti.innerText = texto;

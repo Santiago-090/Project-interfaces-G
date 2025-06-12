@@ -77,7 +77,35 @@ function agregarCategoria() {
         // Cerrar el modal
         closeModal('categoriaModal');
     } else {
-        alert('Por favor, ingrese un ID válido (sólo números), un Nombre válido (sólo letras) y una imagen.');
+        const campos = ['imagenCategoriaInput', 'idInput', 'nombreInput'];
+        limpiarErrores(campos);
+
+        const imagen = document.getElementById('imagenCategoriaInput').files[0];
+        const id = document.getElementById('idInput').value.trim();
+        const nombre = document.getElementById('nombreInput').value.trim();
+
+        let ok = true;
+        
+        // condiciones para mirar si los campos esten correctos 
+        if (!imagen) {
+            document.getElementById('error-imagenCategoriaInput').innerText = '🔍 Selecciona una imagen.';
+            ok = false;
+        }
+
+        if (!/^[0-9]+$/.test(id)) {
+            document.getElementById('error-idInput').innerText = '❌ El ID debe contener solo números.';
+            document.getElementById('idInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!/^[A-Za-z\s]+$/.test(nombre)) {
+            document.getElementById('error-nombreInput').innerText = '❌ El nombre debe contener solo letras.';
+            document.getElementById('nombreInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!ok) return;
+
     }
 }
 
@@ -171,7 +199,55 @@ function agregarProducto() {
         // Cerrar el modal
         closeModal('productoModal');
     } else {
-        alert('Por favor, ingrese datos válidos en todos los campos');
+        const campos = ['imagenInput', 'nombreProductoInput', 'descripcionInput', 'precioInput', 'cantidadInput', 'categoriaProductoInput'];
+        limpiarErrores(campos);
+
+        const imagen = document.getElementById('imagenInput').files[0];
+        const nombre = document.getElementById('nombreProductoInput').value.trim();
+        const descripcion = document.getElementById('descripcionInput').value.trim();
+        const precio = document.getElementById('precioInput').value.trim();
+        const cantidad = document.getElementById('cantidadInput').value.trim();
+        const categoria = document.getElementById('categoriaProductoInput').value.trim();
+
+        let ok = true;
+        
+         // condiciones para mirar si los campos esten correctos 
+        if (!imagen) {
+            document.getElementById('error-imagenInput').innerText = '🔍 Selecciona una imagen.';
+            ok = false;
+        }
+
+        if (!/^[A-Za-z\s]+$/.test(nombre)) {
+            document.getElementById('error-nombreProductoInput').innerText = '❌ Nombre solo debe contener letras.';
+            document.getElementById('nombreProductoInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!/^[A-Za-z\s]+$/.test(descripcion)) {
+            document.getElementById('error-descripcionInput').innerText = '❌ Descripción solo debe contener letras.';
+            document.getElementById('descripcionInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!/^[0-9]+$/.test(precio)) {
+            document.getElementById('error-precioInput').innerText = '❌ Precio debe ser numérico.';
+            document.getElementById('precioInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!/^[0-9]+$/.test(cantidad)) {
+            document.getElementById('error-cantidadInput').innerText = '❌ Cantidad debe ser numérica.';
+            document.getElementById('cantidadInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!/^[A-Za-z\s]+$/.test(categoria)) {
+            document.getElementById('error-categoriaProductoInput').innerText = '❌ Categoría solo debe contener letras.';
+            document.getElementById('categoriaProductoInput').classList.add('field-error');
+            ok = false;
+        }
+
+        if (!ok) return;
     }
 }
 
@@ -212,3 +288,26 @@ function irAPagina_indice() {
     window.location.href = "indice.html";
   }
   
+// funciones para los mensajes de error   
+function mostrarNotificacion(texto, colorFondo = "#E53935") {
+    const noti = document.getElementById("notificacion");
+    noti.innerText = texto;
+    noti.style.backgroundColor = colorFondo;
+    noti.classList.remove("hidden");
+    noti.classList.add("show");
+
+    setTimeout(() => {
+        noti.classList.remove("show");
+        noti.classList.add("hidden");
+    }, 4000);
+}
+
+// funcion para los mensajes de error de cada campo 
+function limpiarErrores(ids) {
+  ids.forEach(id => {
+    const input = document.getElementById(id);
+    if (input) input.classList.remove('field-error');
+    const errorDiv = document.getElementById(`error-${id}`);
+    if (errorDiv) errorDiv.innerText = '';
+  });
+}
