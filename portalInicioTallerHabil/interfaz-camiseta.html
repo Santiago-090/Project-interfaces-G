@@ -3,16 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Tienda</title>
-		<!-- aqui se hace un link para conectar con los estilos del css  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tienda - Camisetas</title>
 		<link rel="stylesheet" href="./css/interfaz-producto.css" />
 		<link rel="stylesheet" href="./css/modal-bienvenida.css" />
 		<link rel="stylesheet" href="./css/tooltip-notifications.css" />
-		<!-- Incluir Tippy.js CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
 		<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css" />
 		<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
@@ -20,11 +15,12 @@
 		<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/perspective.css" />
 		<link rel="stylesheet" href="./css/tooltips/tooltips-style.css" />
 		<link rel="stylesheet" href="./css/tooltip-urgent-fix.css" />
-		<link rel="stylesheet" href="./css/carrito-mejorado.css" />
+		<link rel="stylesheet" href="./css/tooltip-position-fix.css" />
+		<link rel="stylesheet" href="./css/carrito.css" />
 	</head>
 	<div id="notificacion" class="notificacion hidden">
-  Producto añadido al carrito 🛒
-</div>
+		Producto añadido al carrito 🛒
+	</div>
 	<body>
 		<header>
 			<div class="container-BarraSuperior">
@@ -201,16 +197,14 @@
 				</div>
 			</div>
 		</div>
-		<!-- aqui se hace un script para los eventos del js  -->
-		<script src="./javascript/interfaz-producto.js"></script>
-		<script src="./javascript/modal-bienvenida.js"></script>
-		<!-- Incluir Tippy.js -->
-		<script src="https://unpkg.com/@popperjs/core@2"></script>
-		<script src="https://unpkg.com/tippy.js@6"></script>
-		<script src="./javascript/tooltips/tooltips-core.js"></script>
-		<!-- aqui se hace un footer con los datos y direccion de la tienda fisica  -->
 		<footer>
 			<p>&copy; 2025 Tienda Online. Todos los derechos reservados. Carrera 23 # 14-55 / La Unión, Valle del Cauca</p>
 		</footer>
+		
+		<script src="./javascript/interfaz-producto.js"></script>
+		<script src="./javascript/modal-bienvenida.js"></script>
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script src="https://unpkg.com/tippy.js@6"></script>
+		<script src="./javascript/tooltips/tooltips-core.js"></script>
 	</body>
 </html>

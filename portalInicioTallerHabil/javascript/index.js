@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       document.body.removeChild(modal);
 
-      // Mostrar el tooltip informativo automáticamente
       showAutoTooltip();
     }, 400);
   });
@@ -119,7 +118,6 @@ function showAutoTooltip() {
 function initializeInfoButtons() {
   const infoButtons = document.querySelectorAll('.profile-image svg');
 
-  // Añadir evento de clic a cada botón de información
   infoButtons.forEach((button) => {
     if (!button.dataset.infoId) {
       button.dataset.infoId = `info-${Math.random().toString(36).substring(2, 10)}`;

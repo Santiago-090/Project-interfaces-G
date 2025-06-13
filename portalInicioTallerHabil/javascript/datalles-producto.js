@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Obtener elementos relevantes del DOM
     const btnCart = document.querySelector('.container-cart-icon');
     const containerCartProducts = document.querySelector('.container-cart-products');
     const botonAgregar = document.querySelector('.container4 button');
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const valorTotal = document.querySelector('.total-pagar');
     const countProducts = document.querySelector('#contador-productos');
 
-    // Variable de arreglos de Productos
     let allProducts = [];
 
     // Cantidad máxima permitida para agregar al carrito
@@ -22,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const cantidad = parseInt(inputCantidad.value);
 
         if (cantidad > 0 && cantidad <= CANTIDAD_MAXIMA && !isNaN(cantidad)) {
-            // Obtener información del producto (este es un ejemplo, debes adaptarlo según tu estructura HTML)
             const titulo = document.querySelector('.titulo').textContent;
             const precio = document.querySelector('.precio').textContent;
 

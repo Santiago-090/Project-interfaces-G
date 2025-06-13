@@ -28,8 +28,6 @@ nextBtn1.addEventListener("click", ()=> {
 
 backBtn2.addEventListener("click", () => form.classList.remove('secActive'));
 
-// aqui se crea un evento que al momento de darle click continuar verifica que todos los campos este bien digitalizados 
-// y si estan correctamente, entonces oculta la primera parte del formulario y hace aparecer la segunda parte del mensaje
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('myForm');
     const nextBtn1 = document.querySelector('.nextBtn1');
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const formSecond = document.querySelector('.form-second');
 
     nextBtn1.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevenir que el formulario se envíe
+        e.preventDefault();
 
         // Obtener todos los campos de entrada
         const inputs = form.querySelectorAll('input[required], select[required]');
@@ -54,26 +52,22 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!input.checkValidity()) {
                 isValid = false;
 
-                // Crear mensaje de error
                 const errorMessage = document.createElement('div');
                 errorMessage.className = 'error-message';
                 errorMessage.style.color = 'red';
                 errorMessage.textContent = obtenerMensajeDeError(input);
 
-                // Insertar el mensaje de error después del campo de entrada
                 input.parentElement.appendChild(errorMessage);
             }
         });
 
         if (isValid) {
-            // Ocultar la primera parte del formulario y mostrar la segunda
             formFirst.style.display = 'none';
             formSecond.style.display = 'block';
         }
     });
 
     backBtn2.addEventListener('click', function () {
-        // Mostrar la primera parte del formulario y ocultar la segunda
         formFirst.style.display = 'block';
         formSecond.style.display = 'none';
     });
