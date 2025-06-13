@@ -90,8 +90,8 @@ function mostrarModalBienvenida() {
     });
     
     const acceptButton = document.createElement('button');
-    acceptButton.className = 'modal-button primary';
-    acceptButton.textContent = 'Siguiente';    acceptButton.addEventListener('click', function() {
+    acceptButton.className = 'modal-button primary';    acceptButton.textContent = 'Siguiente';
+    acceptButton.addEventListener('click', function() {
         cerrarModalConAnimacion(modalOverlay);
         // Dispara un evento personalizado para iniciar los tooltips secuenciales
         console.log('Cerrando modal y disparando evento modalWelcomeClosed');
@@ -100,12 +100,6 @@ function mostrarModalBienvenida() {
             const modalClosedEvent = new CustomEvent('modalWelcomeClosed');
             document.dispatchEvent(modalClosedEvent);
             console.log('Evento modalWelcomeClosed disparado');
-            
-            // Intentar iniciar los tooltips directamente como respaldo
-            if (window.startGuideTooltips) {
-                console.log('Intentando iniciar guía directamente desde el botón');
-                window.startGuideTooltips();
-            }
         }, 400);
     });
     

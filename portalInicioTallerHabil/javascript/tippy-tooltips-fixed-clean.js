@@ -562,9 +562,17 @@ document.addEventListener('DOMContentLoaded', function () {
     processingStep = false;
     showGuideStep(currentStepIndex);
   }
+  // Ya no iniciamos la guía automáticamente, solo cuando se cierra el modal de bienvenida
+});
 
-  // Iniciar la guía automáticamente después de un breve retraso
-  setTimeout(startGuide, 500);
+// El evento modalWelcomeClosed ahora es el único que inicia la guía
+document.addEventListener('modalWelcomeClosed', function() {
+  console.log('Evento modalWelcomeClosed recibido - iniciando guía de tooltips');
+  setTimeout(() => {
+    if (window.startGuideTooltips) {
+      window.startGuideTooltips();
+    }
+  }, 300); // Pequeño retraso para asegurar que el modal haya desaparecido completamente
 });
 
 // Manejo de eventos para el botón de ayuda (?) en la barra superior

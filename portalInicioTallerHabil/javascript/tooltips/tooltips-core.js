@@ -1,3 +1,4 @@
+// Archivo principal para tooltips optimizados
 // Declaraciones globales para evitar duplicaciones o conflictos
 let currentTippyInstance = null;
 let currentStepIndex = 0;
@@ -6,6 +7,8 @@ let processingStep = false;
 let lastNavigatedTimestamp = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log("Tooltips core cargado y listo para iniciar después del modal");
+  
   // Configuración básica de Tippy
   tippy.setDefaultProps({
     arrow: true,
@@ -14,7 +17,24 @@ document.addEventListener('DOMContentLoaded', function () {
     duration: 300,
     placement: 'auto',
     delay: [300, 100],
-    maxWidth: 250
+    maxWidth: 'none',  // Eliminar restricción de ancho máximo
+    popperOptions: {
+      modifiers: [
+        {
+          name: 'preventOverflow',
+          options: {
+            boundary: document.body,
+            padding: 15
+          }
+        },
+        {
+          name: 'offset',
+          options: {
+            offset: [-20, 8]  // Desplazar a la izquierda (x, y)
+          }
+        }
+      ]
+    }
   });
 
   // Tooltips para los iconos del header y navegación (comunes para todas las vistas)
@@ -27,8 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   tippy('.icon-cart2', {
-    content:
-      'Al hacer clic en este botón, podrás acceder a nuestras redes sociales y contactarnos directamente.',
+    content: 'Al hacer clic en este botón, podrás acceder a nuestras redes sociales y contactarnos directamente.',
     placement: 'bottom',
     theme: 'light-border blue',
     animation: 'shift-away',
@@ -45,48 +64,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Tooltips para descripciones en el carrito
   tippy('.container-cart-products', {
-    content:
-      'Aquí podrás ver una breve descripción de los productos seleccionados, incluyendo su cantidad y valor unitario.',
+    content: 'Aquí podrás ver una breve descripción de los productos seleccionados, incluyendo su cantidad y valor unitario.',
     placement: 'right',
     theme: 'light-border info',
     trigger: 'manual'
   });
 
   tippy('.btn-detalles', {
-    content:
-      'Haz clic aquí para ver información detallada del producto, incluyendo descripción, tallas disponibles y opiniones de otros compradores.',
+    content: 'Haz clic aquí para ver información detallada del producto, incluyendo descripción, tallas disponibles y opiniones de otros compradores.',
     placement: 'top',
     theme: 'light-border info',
     trigger: 'manual'
   });
 
   tippy('.btn-add-cart', {
-    content:
-      'Haz clic en este botón para añadir el producto a tu carrito. Este producto aparecerá en tu carrito de compras.',
+    content: 'Haz clic en este botón para añadir el producto a tu carrito. Este producto aparecerá en tu carrito de compras.',
     placement: 'top',
     theme: 'light-border success',
     trigger: 'manual'
   });
 
   tippy('.cart-delete', {
-    content:
-      'Si deseas eliminar un producto de tu carrito, haz clic en este botón junto al producto que quieres quitar.',
+    content: 'Si deseas eliminar un producto de tu carrito, haz clic en este botón junto al producto que quieres quitar.',
     placement: 'left',
     theme: 'light-border danger',
     trigger: 'manual'
   });
 
   tippy('.total-pagar', {
-    content:
-      'En esta sección se muestra el valor total de los productos que has elegido.',
+    content: 'En esta sección se muestra el valor total de los productos que has elegido.',
     placement: 'bottom',
     theme: 'light-border info',
     trigger: 'manual'
   });
 
   tippy('.finalizar-compra', {
-    content:
-      'Una vez que hayas seleccionado tus productos, haz clic aquí para comenzar el proceso de pago.',
+    content: 'Una vez que hayas seleccionado tus productos, haz clic aquí para comenzar el proceso de pago.',
     placement: 'top',
     theme: 'light-border success',
     trigger: 'manual'
@@ -184,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // Función para mostrar los pasos secuencialmente
   function showGuideStep(index) {
+    console.log(`Intentando mostrar paso ${index}`);
+    
     // Si estamos en el paso 5 (índice 5) que corresponde al paso 6 (container-cart-products),
     // verificar si hay productos en el carrito
     if (index === 5) {
@@ -196,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     
-    // Prevenir múltiples llamadas en corto tiempo, excepto para el paso crítico 3 (carrito)
+    // Prevenir múltiples llamadas en corto tiempo
     const now = Date.now();
     const isCriticalTransition = (currentStepIndex === 2);
     
@@ -234,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // Mejora: mapeo específico para cada paso para asegurar que encontramos los elementos correctos
       const selectorMappings = {
-        '.icon-cart': '.container-cart-icon .icon-cart',        // Paso 3: Carrito de compras
+        '.icon-cart': '.container-cart-icon .icon-cart, .container-icon .icon-cart',        // Paso 3: Carrito de compras
         '.icon-cart2': '.container-icon-cart .icon-cart2',      // Paso 2: Contacto
         '.icon-cart3': '.container-icon-cart .icon-cart3',      // Paso 1: Volver al inicio
         '.btn-add-cart': '.info-product .btn-add-cart',         // Paso 4: Añadir productos
@@ -248,10 +263,12 @@ document.addEventListener('DOMContentLoaded', function () {
       
       // Intentar primero con el selector específico
       let elements = document.querySelectorAll(selector);
+      console.log(`Buscando elementos con selector: ${selector}, encontrados: ${elements.length}`);
       
       // Si no encuentra elementos, intentar con el selector original como respaldo
       if (elements.length === 0 && selector !== step.element) {
         elements = document.querySelectorAll(step.element);
+        console.log(`Intentando con selector original: ${step.element}, encontrados: ${elements.length}`);
       }
       
       // Si estamos en el primer paso y no se encuentra el elemento, usar un elemento respaldo
@@ -268,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const fallbackElements = document.querySelectorAll(fallbackSelector);
           if (fallbackElements.length > 0) {
             elements = fallbackElements;
+            console.log(`Usando selector de respaldo: ${fallbackSelector}`);
             break;
           }
         }
@@ -278,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const element = Array.from(elements).find(el => isElementVisible(el));
         
         if (!element) {
+          console.log('No se encontró ningún elemento visible');
           processingStep = false;
           setTimeout(() => showGuideStep(index + 1), 100);
           return;
@@ -329,6 +348,8 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         };
         
+        console.log(`Creando tooltip para elemento paso ${step.step}`);
+        
         // Si ya tiene una instancia de tippy, usarla; si no, crearla
         if (element._tippy) {
           currentTippyInstance = element._tippy;
@@ -342,13 +363,20 @@ document.addEventListener('DOMContentLoaded', function () {
             arrow: true,
             zIndex: 9999,
             appendTo: document.body,
-            maxWidth: 280,
+            maxWidth: 'none',
             popperOptions: {
               modifiers: [
                 {
                   name: 'preventOverflow',
                   options: {
-                    padding: 10
+                    boundary: document.body,
+                    padding: 15
+                  }
+                },
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [-20, 8] // Desplazar a la izquierda (x, y)
                   }
                 }
               ]
@@ -363,7 +391,8 @@ document.addEventListener('DOMContentLoaded', function () {
           });
           
           currentTippyInstance.show();
-        } else {          // Crear un nuevo tooltip para este elemento
+        } else {          
+          // Crear un nuevo tooltip para este elemento
           currentTippyInstance = tippy(element, {
             content: createStepContent(step),
             placement: step.placement,
@@ -374,13 +403,20 @@ document.addEventListener('DOMContentLoaded', function () {
             arrow: true,
             zIndex: 9999,
             appendTo: document.body,
-            maxWidth: 280,
+            maxWidth: 'none',
             popperOptions: {
               modifiers: [
                 {
                   name: 'preventOverflow',
                   options: {
-                    padding: 10
+                    boundary: document.body,
+                    padding: 15
+                  }
+                },
+                {
+                  name: 'offset',
+                  options: {
+                    offset: [-20, 8] // Desplazar a la izquierda (x, y)
                   }
                 }
               ]
@@ -414,11 +450,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const elements = document.querySelectorAll(selector);
             if (elements.length > 0) {
               cartIcon = elements[0];
+              console.log(`Encontrado cartIcon con selector: ${selector}`);
               break;
             }
           }
           
-          if (cartIcon) {            // Crear tooltip para el elemento encontrado
+          if (cartIcon) {            
+            // Crear tooltip para el elemento encontrado
             currentTippyInstance = tippy(cartIcon, {
               content: createStepContent(step),
               placement: step.placement,
@@ -432,13 +470,20 @@ document.addEventListener('DOMContentLoaded', function () {
               arrow: true,
               zIndex: 9999,
               appendTo: document.body,
-              maxWidth: 280,
+              maxWidth: 'none',
               popperOptions: {
                 modifiers: [
                   {
                     name: 'preventOverflow',
                     options: {
-                      padding: 10
+                      boundary: document.body,
+                      padding: 15
+                    }
+                  },
+                  {
+                    name: 'offset',
+                    options: {
+                      offset: [-20, 8] // Desplazar a la izquierda (x, y)
                     }
                   }
                 ]
@@ -457,12 +502,15 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
         
-        // Si no se pudo manejar especialmente o no era el paso del carrito, pasar al siguiente paso      processingStep = false;
-      setTimeout(() => showGuideStep(index + 1), 100);
+        console.log(`No se encontró elemento para paso ${index}, avanzando al siguiente`);
+        // Si no se pudo manejar especialmente o no era el paso del carrito, pasar al siguiente paso
+        processingStep = false;
+        setTimeout(() => showGuideStep(index + 1), 100);
+      }
+    } catch (error) {
+      console.error('Error mostrando guía:', error);
+      processingStep = false;
     }
-  } catch (error) {
-    processingStep = false;
-  }
   }
 
   // Función para verificar si un elemento está realmente visible
@@ -484,6 +532,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
   // Función para iniciar la guía
   function startGuide() {
+    console.log('Iniciando guía de tooltips');
+    
     // Reiniciar el estado aunque ya se haya iniciado para evitar bloqueos
     if (guideStarted) {
       // Ocultar cualquier tooltip existente
@@ -501,18 +551,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     }
-    
+
     guideStarted = true;
     currentStepIndex = 0;
     processingStep = false;
     lastNavigatedTimestamp = 0;
-    
+
     // Pequeño retraso para asegurar que todo esté listo
     setTimeout(() => {
       showGuideStep(currentStepIndex);
     }, 200);
   }
-  
+
   // Función para avanzar manualmente al siguiente paso
   function manualAdvanceTooltip() {
     // Ocultar tooltip actual si existe
@@ -520,57 +570,56 @@ document.addEventListener('DOMContentLoaded', function () {
       currentTippyInstance.hide();
       currentTippyInstance = null;
     }
-    
-    processingStep = false; 
-    
-    // Verificamos específicamente el paso problemático (paso 2 a 3)
-    if (currentStepIndex === 2) {
-      // Buscar directamente el elemento del paso 3
-      const iconCart = document.querySelector('nav .icon-cart');
-      if (iconCart) {
-        setTimeout(() => showGuideStep(2), 200);  // Paso 3 (índice 2)
-      } else {
-        setTimeout(() => showGuideStep(currentStepIndex + 1), 200);
-      }
-    } else if (typeof currentStepIndex === 'number' && currentStepIndex >= 0) {
-      setTimeout(() => showGuideStep(currentStepIndex + 1), 200);
-    } else {
-      // Si por alguna razón currentStepIndex no está definido, empezamos desde el principio
-      setTimeout(() => showGuideStep(0), 200);
-    }
+
+    processingStep = false;
+    showGuideStep(currentStepIndex);
   }
   
   // Exponer funciones para acceso externo
   window.startGuideTooltips = startGuide;
   window.showGuideStep = showGuideStep;
-  
-  // Escuchar al evento para iniciar la guía al cerrar el modal de bienvenida
-  document.addEventListener('modalWelcomeClosed', function () {
-    // Añadir un pequeño retraso para asegurar que el DOM está listo
-    setTimeout(() => {
-      startGuide();
-      
-      // Verificar después de un breve retraso si el tooltip apareció
-      setTimeout(() => {
-        const visibleTooltips = document.querySelectorAll('.tippy-box[data-state="visible"]');
-        
-        // Si no hay tooltips visibles, intentar forzar la aparición del primero
-        if (visibleTooltips.length === 0 && typeof showGuideStep === 'function') {
-          showGuideStep(0);
-        }
-      }, 500);
-    }, 400);
-  });
-  
-  // Escuchar al evento de producto agregado al carrito
-  document.addEventListener('productAddedToCart', function() {
-    // Si estamos en o hemos pasado el paso 5 (paso 6 - container-cart-products), 
-    // y este paso se ha saltado previamente, mostrarlo ahora
-    if (currentStepIndex >= 5 && document.querySelector('.cart-empty.hidden')) {
-      // Mostrar tooltip del carrito si ya lo pasamos pero ahora hay productos
-      showGuideStep(5); // Mostrar paso 6 (índice 5)
+  window.manualAdvanceTooltip = manualAdvanceTooltip;
+});
+
+// El evento modalWelcomeClosed ahora es el único que inicia la guía
+document.addEventListener('modalWelcomeClosed', function() {
+  console.log('Evento modalWelcomeClosed recibido - iniciando guía de tooltips');
+  setTimeout(() => {
+    if (window.startGuideTooltips) {
+      window.startGuideTooltips();
+    } else {
+      console.error('La función startGuideTooltips no está disponible');
     }
-  });
-  // Ya no iniciamos la guía automáticamente al detectar que no hay modal
-  // El modal siempre debe aparecer primero
+  }, 300); // Pequeño retraso para asegurar que el modal haya desaparecido completamente
+});
+
+// Manejo de eventos para el botón de ayuda (?) en la barra superior
+document.addEventListener('DOMContentLoaded', function () {
+  const helpButton = document.querySelector('.btn-help');
+
+  if (helpButton) {
+    helpButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Alternar la visibilidad de los tooltips de ayuda
+      const isVisible = document.querySelector('.tippy-box[data-state="visible"]');
+
+      if (isVisible) {
+        // Si hay tooltips visibles, ocultarlos
+        const instances = document.querySelectorAll('.tippy-box');
+        instances.forEach((instance) => {
+          const tippyInstance = instance._tippy;
+          if (tippyInstance) {
+            tippyInstance.hide();
+          }
+        });
+      } else {
+        // Si no hay tooltips visibles, iniciar la guía
+        if (window.startGuideTooltips) {
+          window.startGuideTooltips();
+        }
+      }
+    });
+  }
 });
