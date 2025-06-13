@@ -1,0 +1,62 @@
+/* Eliminar scrollbars de los tooltips */
+.guide-tooltip {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow: visible !important;
+}
+
+.tooltip-content {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.guide-tooltip[data-tooltip-id] {
+  height: auto !important;
+  width: auto !important;
+  max-width: 350px !important;
+}
+
+.guide-tooltip[data-tooltip-id='4'],
+.guide-tooltip[data-tooltip-id='5'],
+.guide-tooltip[data-tooltip-id='6'],
+.guide-tooltip[data-tooltip-id='7'] {
+  width: auto !important;
+  height: auto !important;
+}
+
+.guide-tooltip[data-tooltip-id='9'] {
+  max-width: 300px !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.tooltip-buttons {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+.guide-tooltip p {
+  max-width: 100% !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.guide-tooltip {
+  min-width: auto !important;
+  min-height: auto !important;
+}
+
+body.tooltip-active {
+  overflow: auto !important;
+}
+
+.guide-tooltip::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.guide-tooltip {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}

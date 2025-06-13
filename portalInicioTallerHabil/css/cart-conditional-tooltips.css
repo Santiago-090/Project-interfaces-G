@@ -1,0 +1,41 @@
+/* Estilos específicos para tooltips condicionales del carrito */
+.cart-has-items .guide-tooltip[data-tooltip-id="4"],
+.cart-has-items .guide-tooltip[data-tooltip-id="5"],
+.cart-has-items .guide-tooltip[data-tooltip-id="6"],
+.cart-has-items .guide-tooltip[data-tooltip-id="7"] {
+  background-color: #004d80 !important;
+  border: 2px solid #003b66 !important;
+  box-shadow: 0 0 15px rgba(0, 119, 204, 0.4) !important;
+}
+
+@keyframes cartTooltipPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 119, 204, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 119, 204, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 119, 204, 0.4);
+  }
+}
+
+.cart-has-items .cart-related-tooltip {
+  animation: cartTooltipPulse 2s infinite !important;
+}
+
+.guide-tooltip[data-tooltip-id="7"] {
+  background-color: #2E7D32 !important;
+  border-color: #1B5E20 !important;
+}
+
+.cart-related-tooltip p {
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.cart-related-tooltip {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow: visible !important;
+}

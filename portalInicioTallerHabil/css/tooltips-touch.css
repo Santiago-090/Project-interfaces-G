@@ -1,0 +1,104 @@
+/* Mejoras para experiencia de usuario en dispositivos táctiles */
+
+/* Asegurar que los botones en tooltips son lo suficientemente grandes para tocar */
+@media (max-width: 768px), (pointer: coarse) {
+  /* Para dispositivos móviles o con entrada táctil */
+  
+  /* Botones de navegación más grandes */
+  .tooltip-button {
+    padding: 10px 15px !important;
+    min-height: 44px !important; /* Altura mínima recomendada para objetivos táctiles */
+    min-width: 44px !important;  /* Anchura mínima recomendada para objetivos táctiles */
+    margin: 5px !important;
+    font-size: 16px !important;
+  }
+  
+  /* Espaciado entre botones */
+  .tooltip-buttons {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 15px !important;
+  }
+  
+  /* Asegurar que el tooltip es suficientemente grande */
+  .guide-tooltip {
+    padding: 15px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Mejorar tamaño del botón flotante de ayuda */
+  .help-floating-button {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  /* Evitar que elementos del tooltip se sobrepongan */
+  .tooltip-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  /* Hacer el texto más legible en dispositivos móviles */
+  .guide-tooltip p {
+    font-size: 16px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  /* Mejorar contraste para mejor legibilidad */
+  .guide-tooltip {
+    background-color: rgba(0, 119, 204, 0.95) !important;
+    color: white !important;
+    font-weight: 500 !important;
+  }
+  
+  /* Dar más espacio para los tooltips en dispositivos táctiles */
+  .guide-tooltip[data-tooltip-id="9"] {
+    padding: 15px !important;
+  }
+  
+  /* Hacer que el carrito sea más fácil de tocar */
+  .container-cart-icon {
+    padding: 10px !important;
+  }
+  
+  /* Asegurar que los elementos destacados sean fáciles de ver en dispositivos táctiles */
+  .highlight-element {
+    box-shadow: 0 0 0 4px rgba(0, 119, 204, 0.8) !important;
+  }
+  
+  /* Modal de bienvenida más grande en móviles */
+  .welcome-modal .modal-content {
+    padding: 20px !important;
+  }
+  
+  .modal-button {
+    padding: 12px 20px !important;
+    min-height: 44px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Mejorar la transición entre tooltips */
+.guide-tooltip {
+  opacity: 0;
+  animation: tooltipFadeIn 0.3s ease-out forwards !important;
+}
+
+@keyframes tooltipFadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Prevenir el desplazamiento de la página cuando se muestra un tooltip */
+body.tooltip-active {
+  overflow-x: hidden !important;
+}
+
+/* Asegurar que los tooltips tengan el tamaño adecuado */
+.guide-tooltip {
+  height: auto !important;
+  width: auto !important;
+  max-width: 350px !important;
+}

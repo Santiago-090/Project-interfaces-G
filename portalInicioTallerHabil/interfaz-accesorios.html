@@ -6,12 +6,23 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Tienda</title>
-		<!-- aqui se hace un link para conectar con los estilos del css  -->
-		<link rel="stylesheet" href="./css/interfaz-producto.css" /> 
+		/>		<title>Tienda</title>
+		<link rel="stylesheet" href="./css/interfaz-producto.css" />
+		<link rel="stylesheet" href="./css/tooltips-guia.css" />
+		<link rel="stylesheet" href="./css/tooltips-guia-fix.css" />
+		<link rel="stylesheet" href="./css/tooltip-carrito-fixes.css" />
+		<link rel="stylesheet" href="./css/tooltips-responsive.css" />
+		<link rel="stylesheet" href="./css/details-button-tooltips.css" />
+		<link rel="stylesheet" href="./css/tooltips-touch.css" />
+		<link rel="stylesheet" href="./css/no-scroll-tooltips.css" />
+		<link rel="stylesheet" href="./css/cart-conditional-tooltips.css" />
+		<link rel="stylesheet" href="./css/tooltip-notifications.css" />
+		<link rel="stylesheet" href="./css/modal-bienvenida.css" />
 	</head>
 	<body>
+		<div id="notificacion" class="notificacion hidden">
+			Producto añadido al carrito 🛒
+		</div>
 		<header>
 			<div class="container-BarraSuperior">
 				<h1>URBAN STREET / Tienda Online</h1> 
@@ -129,7 +140,6 @@
 					<span> <button onclick="irAPagina_Detalles_accesorios()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 2  -->
 			<div class="item">
 				<figure>
 					<img
@@ -144,7 +154,6 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 3  -->
 			<div class="item">
 				<figure>
 					<img
@@ -159,7 +168,6 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 4  -->
 			<div class="item">
 				<figure>
 					<img
@@ -174,7 +182,6 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 5  -->
 			<div class="item">
 				<figure>
 					<img
@@ -190,11 +197,11 @@
 				</div>
 			</div>
 		</div>
-		<!-- aqui se hace un script para los eventos del js  -->
-		<script src="./javascript/interfaz-producto.js"></script> 
-		<!-- aqui se hace footer con los datos y direccion de la tienda fisica  -->
 		<footer>
 			<p>&copy; 2024 Tienda Online. Todos los derechos reservados. Carrera 23 # 14-55 / La Unión, Valle del Cauca</p>
 		</footer>
+		<script src="./javascript/interfaz-producto.js"></script> 
+		<script src="./javascript/tooltips-guia.js"></script>
+		<script src="./javascript/modal-bienvenida.js"></script>
 	</body>
 </html>

@@ -8,10 +8,22 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Tienda</title>
-		<!-- aqui se hace un link para conectar con los estilos del css  -->
 		<link rel="stylesheet" href="./css/interfaz-producto.css" />
+		<link rel="stylesheet" href="./css/tooltips-guia.css" />
+		<link rel="stylesheet" href="./css/tooltips-guia-fix.css" />
+		<link rel="stylesheet" href="./css/tooltip-carrito-fixes.css" />
+		<link rel="stylesheet" href="./css/tooltips-responsive.css" />
+		<link rel="stylesheet" href="./css/details-button-tooltips.css" />
+		<link rel="stylesheet" href="./css/tooltips-touch.css" />
+		<link rel="stylesheet" href="./css/no-scroll-tooltips.css" />
+		<link rel="stylesheet" href="./css/cart-conditional-tooltips.css" />
+		<link rel="stylesheet" href="./css/tooltip-notifications.css" />
+		<link rel="stylesheet" href="./css/modal-bienvenida.css" />
 	</head>
 	<body>
+		<div id="notificacion" class="notificacion hidden">
+			Producto añadido al carrito 🛒
+		</div>
 		<header>
 			<div class="container-BarraSuperior">
 				<h1>URBAN STREET / Tienda Online</h1>
@@ -69,12 +81,10 @@
 								d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
 							/>
 						</svg>
-						
 						<div class="count-products">
 							<span id="contador-productos">0</span>
 						</div>
 					</div>
-	
 					<div class="container-cart-products hidden-cart">
 						<div class="row-product hidden">
 							<div class="cart-product">
@@ -99,7 +109,6 @@
 								</svg>
 							</div>
 						</div>
-	
 						<div class="cart-total hidden">
 							<h3>Total:</h3>
 							<span class="total-pagar"></span>
@@ -114,7 +123,6 @@
 			<h3>Categoria Pantalones / Hombre-Dama</h3>
 			<h4>Elige entre modelos slim, cargo o clásicos para tu día a día.👖</h4>
 		<div class="container-items">
-			<!-- vista del producto 1  -->
 			<div class="item">
 				<figure>
 					<img
@@ -129,7 +137,6 @@
 					<span> <button onclick="irAPagina_Detalles_pantalones()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 2  -->
 			<div class="item">
 				<figure>
 					<img
@@ -144,7 +151,6 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 3  -->
 			<div class="item">
 				<figure>
 					<img
@@ -159,7 +165,6 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 4  -->
 			<div class="item">
 				<figure>
 					<img
@@ -174,7 +179,6 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 5 -->
 			<div class="item">
 				<figure>
 					<img
@@ -190,11 +194,11 @@
 				</div>
 			</div>
 		</div>
-		<!-- aqui se hace un script para los eventos del js  -->
-		<script src="./javascript/interfaz-producto.js"></script>
-		<!-- aqui se hace in footer con los datos y direccion de la tienda fisica  -->
 		<footer>
 			<p>&copy; 2024 Tienda Online. Todos los derechos reservados. Carrera 23 # 14-55 / La Unión, Valle del Cauca</p>
 		</footer>
+		<script src="./javascript/interfaz-producto.js"></script>
+		<script src="./javascript/tooltips-guia.js"></script>
+		<script src="./javascript/modal-bienvenida.js"></script>
 	</body>
 </html>
