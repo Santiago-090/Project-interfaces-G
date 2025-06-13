@@ -1,0 +1,221 @@
+/* Estilos mejorados para garantizar que los tooltips sean visibles y funcionales */
+
+/* Aumentar el z-index de todos los tooltips */
+.tippy-box {
+  z-index: 9999 !important;
+}
+
+/* Destacar el tooltip más importante del flujo (paso 3) */
+.tippy-box[data-theme~='guide-step'] {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  border-top: 5px solid #0077cc !important;
+}
+
+/* Mejorar el estilo del botón Siguiente */
+.guide-next-button {
+  background-color: #0077cc !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
+  min-width: 140px !important;
+  transition: all 0.2s ease-in-out !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.guide-next-button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transition: all 0.6s;
+}
+
+.guide-next-button:hover {
+  background-color: #005fa3 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.guide-next-button:hover:before {
+  left: 100%;
+}
+
+.guide-next-button:active {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Centrar correctamente el contenido de los tooltips */
+.guide-step-content {
+  padding: 20px 18px !important;
+  min-width: 320px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.guide-step-content p {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  margin: 10px 0 20px !important;
+  color: #333 !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.guide-step-content strong {
+  color: #0077cc !important;
+  font-weight: 600 !important;
+}
+
+.guide-step-content h4 {
+  font-size: 20px !important;
+  color: #222 !important;
+  margin: 0 0 15px !important;
+  width: 100% !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+}
+
+/* Hacer que el tooltip sea más prominente */
+.tippy-box[data-theme~='guide-step'] {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  border-top: 5px solid #0077cc !important;
+  border-radius: 8px !important;
+}
+
+/* Mejorar la visibilidad del número de paso */
+.step-number {
+  display: inline-block !important;
+  background-color: #0077cc !important;
+  color: white !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+  text-align: center !important;
+  border-radius: 50% !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+  font-size: 16px !important;
+}
+
+/* Destacar el paso 3 específicamente */
+.guide-step-content:has(.step-number:contains("3")) {
+  border-left: 4px solid #ff5722 !important;
+}
+
+/* Mejorar la visibilidad de la flecha del tooltip */
+.tippy-arrow {
+  color: #fff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15)) !important;
+}
+
+/* Contenedor de la navegación del tooltip */
+.guide-navigation {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+/* Arreglo para el tooltip del paso 6 (carrito) - siempre centrado */
+.tippy-box[data-placement^='bottom'][data-reference-id^='container-cart-products'] .guide-step-content {
+  margin: 0 auto !important;
+  text-align: center !important;
+  max-width: 300px !important;
+}
+
+/* Animación suave para los tooltips */
+.tippy-box[data-animation='fade'][data-state='hidden'] {
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Asegurar que los elementos de navegación sean claramente visibles */
+.icon-cart,
+.icon-cart2,
+.icon-cart3 {
+  transition: transform 0.3s ease !important;
+}
+
+/* Efecto de hover para los iconos */
+.icon-cart:hover,
+.icon-cart2:hover,
+.icon-cart3:hover {
+  transform: scale(1.2) !important;
+}
+
+/* Estilo para botón de emergencia */
+#emergency-tooltip-button {
+  background-color: #ff5722 !important;
+  color: white !important;
+  padding: 12px 18px !important;
+  border-radius: 5px !important;
+  font-weight: bold !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 10000 !important;
+}
+
+/* Estilos específicos para ayudar a encontrar el icono del carrito */
+.icon-cart {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+/* Animación de pulso para el elemento del carrito */
+@keyframes pulse-cart {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(0, 119, 204, 0.7));
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 5px rgba(0, 119, 204, 0.9));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(0, 119, 204, 0.7));
+  }
+}
+
+/* Destacar el icono del carrito cuando se muestra su tooltip */
+.tippy-box[data-theme~='guide-step'][data-placement^='bottom'] ~ .container-icon .icon-cart,
+.tooltip-highlight-element.icon-cart {
+  animation: pulse-cart 1.5s infinite !important;
+}
+
+/* Estilos para paso 3 específicamente */
+.guide-step-content:has(.step-number:contains("3")) {
+  border-left: 4px solid #ff5722 !important;
+  background-color: rgba(255, 255, 240, 1) !important;
+}
+
+/* Tema especial para el tooltip del paso 3 */
+.tippy-box[data-theme~='highlight-special'] {
+  background-color: #fff9e6 !important;
+  border: 2px solid #ff5722 !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+}

@@ -1,9 +1,20 @@
 // JavaScript para el modal de bienvenida a categorías
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM cargado, preparando modal de bienvenida');
-    // Mostrar el modal inmediatamente al entrar a la página de categoría
-    // No usamos sessionStorage para asegurar que siempre se muestre
-    mostrarModalBienvenida();
+    // Verificar si ya se mostró el modal en esta sesión
+    if (!sessionStorage.getItem('modalShown')) {
+        // Mostrar el modal al entrar a la página de categoría
+        mostrarModalBienvenida();
+        // Marcar como mostrado para esta sesión
+        sessionStorage.setItem('modalShown', 'true');
+    } else {
+        console.log('Modal ya mostrado en esta sesión, disparando evento modalWelcomeClosed');
+        // Disparar el evento para iniciar los tooltips si el modal no se muestra
+        setTimeout(() => {
+            const modalClosedEvent = new CustomEvent('modalWelcomeClosed');
+            document.dispatchEvent(modalClosedEvent);
+        }, 500);
+    }
 });
 
 function mostrarModalBienvenida() {
@@ -78,15 +89,20 @@ function mostrarModalBienvenida() {
     modalButtons.className = 'modal-buttons';
       const cancelButton = document.createElement('button');
     cancelButton.className = 'modal-button cancel';
-    cancelButton.textContent = 'Cancelar';
-    cancelButton.addEventListener('click', function() {
+    cancelButton.textContent = 'Cancelar';    cancelButton.addEventListener('click', function() {
         cerrarModalConAnimacion(modalOverlay);
         // Dispara el evento para iniciar los tooltips (igual que el botón "Siguiente")
         setTimeout(() => {
             console.log('Cerrando modal (cancelar) y disparando evento modalWelcomeClosed');
             const modalClosedEvent = new CustomEvent('modalWelcomeClosed');
             document.dispatchEvent(modalClosedEvent);
-        }, 300);
+            
+            // Intentar iniciar los tooltips directamente como respaldo
+            if (window.startGuideTooltips) {
+                console.log('Intentando iniciar guía directamente desde el botón cancelar');
+                window.startGuideTooltips();
+            }
+        }, 400);
     });
     
     const acceptButton = document.createElement('button');
@@ -103,20 +119,27 @@ function mostrarModalBienvenida() {
             
             // Intentar iniciar los tooltips directamente como respaldo
             if (window.startGuideTooltips) {
-                console.log('Intentando iniciar guía directamente desde el botón');
+                console.log('Intentando iniciar guía directamente desde el botón Siguiente');
                 window.startGuideTooltips();
             }
         }, 400);
     });
-    
-    // Cerrar al hacer clic fuera del modal
+      // Cerrar al hacer clic fuera del modal
     modalOverlay.addEventListener('click', function(e) {
         if (e.target === modalOverlay) {
             cerrarModalConAnimacion(modalOverlay);
             // Dispara un evento personalizado para iniciar los tooltips secuenciales
             console.log('Cerrando modal (click fuera) y disparando evento modalWelcomeClosed');
-            const modalClosedEvent = new CustomEvent('modalWelcomeClosed');
-            document.dispatchEvent(modalClosedEvent);
+            setTimeout(() => {
+                const modalClosedEvent = new CustomEvent('modalWelcomeClosed');
+                document.dispatchEvent(modalClosedEvent);
+                
+                // Intentar iniciar los tooltips directamente como respaldo
+                if (window.startGuideTooltips) {
+                    console.log('Intentando iniciar guía directamente desde clic fuera');
+                    window.startGuideTooltips();
+                }
+            }, 400);
         }
     });
     
@@ -160,3 +183,10 @@ function cerrarModalConAnimacion(modalElement) {
         document.head.removeChild(style);
     }, 300);
 }
+
+// Exponer una función pública para resetear el estado de los modales (útil para pruebas)
+window.resetModalState = function() {
+    sessionStorage.removeItem('modalShown');
+    sessionStorage.removeItem('tooltipGuideCompleted');
+    console.log('Estado de modales y guías reiniciado');
+};

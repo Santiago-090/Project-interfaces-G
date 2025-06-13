@@ -54,7 +54,10 @@ productsList.addEventListener("click", (e) => {
       allProducts = [...allProducts, infoProduct];
     }
 
-     mostrarNotificacion(); showHTML();
+    mostrarNotificacion(); showHTML();
+    
+    // Disparar un evento personalizado para indicar que se agregó un producto al carrito
+    document.dispatchEvent(new CustomEvent('productAddedToCart'));
   }
 });
 
