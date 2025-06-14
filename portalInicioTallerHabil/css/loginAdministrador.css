@@ -206,3 +206,11 @@ body {
         font-size: 13px; /* Tamaño de la fuente ajustado */
     }
 }
+
+#welcome-modal-content p {
+    color: black;
+}
+
+.tooltip-text {
+    color: black;
+}

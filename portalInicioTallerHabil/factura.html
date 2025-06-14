@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Factura / URBANSTREET</title>
+    <link rel="stylesheet" href="./css/tooltips.css" />
+    <script src="./javascript/tooltips/tooltips.js" defer></script>
+    <script src="./javascript/tooltips/factura-tooltips.js" defer></script>
     <style>
-      /* Estilo global del cuerpo */
       body {
         background: #1a1a1a;
         font-family: Arial, sans-serif;
@@ -13,7 +15,6 @@
         padding: 0;
       }
 
-      /* Contenedor principal */
       .container {
         color: #1a1a1a;
         width: 80%;
@@ -23,7 +24,6 @@
         padding: 20px;
       }
 
-      /* Encabezado de la factura */
       .header {
         color: #1a1a1a;
         display: flex;
@@ -149,14 +149,14 @@
 
       button:hover {
         background-color: #005b99;
-        cursor: pointer; /* Cambia el cursor a puntero */
-        transform: scale(1.08); /* Escala el boton */
+        cursor: pointer;
+        transform: scale(1.08);
       }
 
-      .indice:hover{
+      .indice:hover {
         background-color: #e53935;
-        cursor: pointer; /* Cambia el cursor a puntero */
-        transform: scale(1.08); /* Escala el boton */
+        cursor: pointer;
+        transform: scale(1.08);
       }
     </style>
   </head>
@@ -260,8 +260,8 @@
         <div class="invoice-note">
           <h2>Nota Importante:</h2>
           <p>
-            Esta factura es muy importante en el momento de reclamar su pedido o
-            requerir un reclamo, asegúrese de guardarla. ¡Gracias por su compra!
+            Esta factura es muy importante en el momento de reclamar su pedido o requerir un
+            reclamo, asegúrese de guardarla. ¡Gracias por su compra!
           </p>
         </div>
         <div class="summary">
@@ -279,11 +279,11 @@
           </div>
         </div>
       </div>
-      <!-- Botones de acciones -->
-      <button onclick="printInvoice()">Imprimir Factura</button>
-      <button class="indice" onclick="irAPagina_indice()" type="button">Regresar a la página principal</button>
+      <button class="btn-imprimir" onclick="printInvoice()">Imprimir Factura</button>
+      <button class="indice" onclick="irAPagina_indice()" type="button">
+        Regresar a la página principal
+      </button>
     </div>
-    <!-- aqui se hace el script para los eventos del js  -->
     <script src="./javascript/factura.js"></script>
   </body>
 </html>

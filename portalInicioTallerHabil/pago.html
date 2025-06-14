@@ -4,50 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Online / Formulario de Pago </title>
-    <!-- aqui se hace un link para conectar los estilos del css  -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/tooltips.css">
+    <script src="./javascript/tooltips/tooltips.js" defer></script>
+    <script src="./javascript/tooltips/pago-tooltips.js" defer></script>
 </head>
 <body>
     <div class="container">
         <header>Completa el siguiente fomulario para finalizar tu compra🛒</header>
-        <!-- estructura del formulario  -->
         <form action="#" id="myForm">
             <!-- contendor de la primera parte del formulario  -->
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Datos Personales</span>
-                    <!-- los inputs para para pedir los datos personales del usuario  -->
                     <div class="fields">
                         <div class="input-field">
                             <label>Nombre Completo</label>
                             <input type="text" placeholder="Ingresa tu nombre y apellido" required>
                         </div>
-
                         <div class="input-field">
                             <label>Cédula ciudadana</label>
                             <input type="number" placeholder="Ingresa tu cédula ciudadana" required>
                         </div>
-
                         <div class="input-field">
                             <label>Correo Electrónico</label>
                             <input type="email" placeholder="Ingresa tu correo electrónico" required>
                         </div>
- 
                         <div class="input-field">
                             <label>Número Celular</label>
                             <input type="number" placeholder="Ingresa tu celular" required>
                         </div>
-
                         <div class="input-field">
                             <label>Género</label>
                             <input type="text" placeholder="Ingresa tu género" required>
                         </div>
-
                         <div class="input-field">
                             <label>Fecha Actual</label>
                             <input type="date" placeholder="Ingresa la fecha actual" required>
                         </div>
-                        
                     </div>
                 </div>
                 <!-- los inputs para registrar la dirrecion y localizacion del usuario  -->
@@ -89,7 +83,6 @@
                 <!-- los inputs para para registrar el metodo de pago que utilizar el usuario  -->
                 <div class="details metodo-pago">
                     <span class="title">Metodología de Pago</span>
-
                     <div class="fields">
                         <div class="input-field">
                             <label>Banco</label>
@@ -98,7 +91,6 @@
                                 <option>Davivienda</option>
                             </select>
                         </div>
-
                         <div class="input-field">
                             <label>Tipo de Pago</label>
                             <select id="tipoPago" name="tipoPago">
@@ -106,19 +98,16 @@
                                 <option value="transferencia">DaviPlata</option>
                             </select>
                         </div>
-
                         <div class="input-field">
                             <label>Número de Cuenta</label>
                             <input type="number" placeholder="Ingresa número de cuenta" required>
                         </div>
                     </div>
-
                     <div class="buttons">
                         <div onclick="irAPagina_Principal()" class="backBtn1">
                             <img class="navigator" src="./fotos ropa/proximo.png" />
                             <span class="btnText">Regresar al indice</span>
                         </div>
-
                         <button class="nextBtn1">
                             <span class="btnText">Continuar</span>
                             <img class="navigator" src="./fotos ropa/proximo.png" />
@@ -129,20 +118,17 @@
             <!-- la segunda parte del formulario que aparece un mensaje de que todos los datos fueron registrados correctamente -->
             <div class="form-second">
                 <div class="details address">
-
                     <h1>!Gracias por completar el formulario de pago!</h1>
                     <img class="background" src="./fotos ropa/bien.png" alt="" />
                     <h2>Ya se completo el formulario</h2>
                     <h3>Si necesitas realizar algún cambio pulsa el botón "Regresar"</h3>
                     <h3>Si estas seguro de tus datos pulsa el botón "Continuar"</h3>
                     <h3>Ahora puedes reclamar tu factura de compra</h3>
-                    
                     <div class="buttons">
                         <div class="backBtn2">
                             <img class="navigator" src="./fotos ropa/proximo.png" />
                             <span class="btnText">Regresar</span>
                         </div>
-    
                         <button onclick="irAPagina_QR()" type="button" class="nextBtn2">
                             <span class="btnText">Continuar</span>
                             <img class="navigator" src="./fotos ropa/proximo.png" />
@@ -152,7 +138,6 @@
             </div>
         </form>
     </div>
-    <!-- aqui se hace un script para conectar los eventos del js  -->
     <script src="./javascript/pago.js"></script>
 </body>
 </html>
