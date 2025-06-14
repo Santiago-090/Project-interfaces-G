@@ -2,16 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   setupPageTooltips(
     [
       {
-        element: '.btn-regresar',
+        element: '.logo',
         title: 'Regresar',
-        text: 'Si necesitas realizar algún cambio pulsa este botón "Regresar".',
-        position: 'bottom',
-        highlight: true
-      },
-      {
-        element: '.btn-continuar',
-        title: 'Continuar',
-        text: 'Si estás seguro de tus datos pulsa este botón "Continuar".',
+        text: 'Escoge el método de pago y escanea el QR.',
         position: 'bottom',
         highlight: true
       }
@@ -19,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: 'Confirma tu Información',
       content: `
-                <p>Por favor, confirma que todos tus datos son correctos antes de proceder al pago.</p>
-                <p>Si necesitas hacer algún cambio, puedes regresar al formulario anterior.</p>
+                <p>A continuación, te mostramos los métodos de pago disponibles.</p>
             `
     }
   );

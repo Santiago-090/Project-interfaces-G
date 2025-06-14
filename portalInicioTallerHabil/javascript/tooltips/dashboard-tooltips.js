@@ -1,4 +1,3 @@
-// Definición de los diferentes conjuntos de tooltips
 const initialTooltips = [
   {
     element: '.toggle',
@@ -18,14 +17,14 @@ const initialTooltips = [
     element: '.icon-category',
     title: 'Gestión de Categorías',
     text: 'Aquí puedes administrar las categorías de productos de tu tienda.',
-    position: 'bottom',
+    position: 'right',
     highlight: true
   },
   {
     element: '.icon-product',
     title: 'Gestión de Productos',
     text: 'Aquí puedes administrar los productos de tu catálogo.',
-    position: 'bottom',
+    position: 'right',
     highlight: true
   }
 ];
@@ -49,7 +48,7 @@ const categoryTooltips = [
 
 const productTooltips = [
   {
-    element: '.btn-agregar',
+    element: '.btn-producto',
     title: 'Agregar Producto',
     text: 'Haz clic aquí para añadir un nuevo producto a tu catálogo.',
     position: 'bottom',
@@ -73,16 +72,23 @@ const categoryModalTooltips = [
     highlight: true
   },
   {
-    element: '#idInput',
-    title: 'ID de la Categoría',
-    text: 'Ingresa un identificador único para esta categoría. Solo se permiten números.',
+    element: '.dateCategotyInputs',
+    title: 'Campos de Categoría',
+    text: 'En estos campos podemos agregar una imagen, un ID y un nombre que es el que toma la categoría.',
     position: 'right',
     highlight: true
   },
   {
-    element: '#nombreInput',
-    title: 'Nombre de la Categoría',
-    text: 'Ingresa un nombre descriptivo para esta categoría. Solo se permiten letras.',
+    element: '.addCategotyButton',
+    title: 'Agregar Categoría',
+    text: 'Al darle clic se creará una nueva categoría.',
+    position: 'right',
+    highlight: true
+  },
+  {
+    element: '.close',
+    title: 'Cerrar Modal',
+    text: 'Haz clic aquí para cerrar el modal de agregar categoría.',
     position: 'right',
     highlight: true
   }
@@ -90,44 +96,23 @@ const categoryModalTooltips = [
 
 const productModalTooltips = [
   {
-    element: '#imagenInput',
-    title: 'Imagen del Producto',
-    text: 'Selecciona una imagen representativa para este producto.',
+    element: '.dateProductInputs',
+    title: 'Campos del Producto',
+    text: 'En estos campos podemos agregar una imagen, un nombre, la descripción, el precio, la cantidad y la categoría a la cual pertenece el nuenvo producto',
     position: 'right',
     highlight: true
   },
   {
-    element: '#nombreProductoInput',
-    title: 'Nombre del Producto',
-    text: 'Ingresa un nombre descriptivo para este producto.',
+    element: '.addProductButton',
+    title: 'Agregar Producto',
+    text: 'Al darle clic se creará un nuevo producto.',
     position: 'right',
     highlight: true
   },
   {
-    element: '#descripcionInput',
-    title: 'Descripción del Producto',
-    text: 'Proporciona una descripción detallada del producto.',
-    position: 'right',
-    highlight: true
-  },
-  {
-    element: '#precioInput',
-    title: 'Precio del Producto',
-    text: 'Ingresa el precio de venta de este producto.',
-    position: 'right',
-    highlight: true
-  },
-  {
-    element: '#cantidadInput',
-    title: 'Cantidad en Inventario',
-    text: 'Indica la cantidad disponible de este producto.',
-    position: 'right',
-    highlight: true
-  },
-  {
-    element: '#categoriaProductoInput',
-    title: 'Categoría del Producto',
-    text: 'Selecciona a qué categoría pertenece este producto.',
+    element: '.closeProduct',
+    title: 'Cerrar Modal',
+    text: 'Haz clic aquí para cerrar el modal de agregar categoría.',
     position: 'right',
     highlight: true
   }
@@ -144,74 +129,55 @@ const welcomeModalData = {
 
 // Función para limpiar tooltips existentes y mostrar nuevos
 function showNewTooltips(tooltips) {
-  // Resetear el sistema de tooltips
   tooltipSystem.reset();
-  
-  // Configurar y mostrar nuevos tooltips
   tooltipSystem.setup(tooltips, null);
-  
-  // Iniciar la visualización de tooltips
+
   setTimeout(() => {
     tooltipSystem.startTooltips();
   }, 300);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Configurar tooltips iniciales y modal de bienvenida
   setupPageTooltips(initialTooltips, welcomeModalData);
-  
-  // Agregar event listeners para cambiar dinámicamente los tooltips
-  
-  // Tooltips para categorías
-  document.querySelector('.icon-category').addEventListener('click', function() {
-    // Permitir que se complete la visualización del DOM antes de mostrar tooltips
+
+  document.querySelector('.icon-category').addEventListener('click', function () {
     setTimeout(() => {
       showNewTooltips(categoryTooltips);
     }, 300);
   });
-  
-  // Tooltips para productos
-  document.querySelector('.icon-product').addEventListener('click', function() {
-    // Permitir que se complete la visualización del DOM antes de mostrar tooltips
+
+  document.querySelector('.icon-product').addEventListener('click', function () {
     setTimeout(() => {
       showNewTooltips(productTooltips);
     }, 300);
   });
-  
-  // Event listener para el modal de categorías
-  document.querySelectorAll('.btn-agregar').forEach(btn => {
-    btn.addEventListener('click', function() {
-      // Identificar qué modal se está abriendo
+
+  document.querySelectorAll('.btn-agregar').forEach((btn) => {
+    btn.addEventListener('click', function () {
       if (document.getElementById('categorias').style.display !== 'none') {
-        // Modal de categoría
         setTimeout(() => {
           showNewTooltips(categoryModalTooltips);
         }, 500);
       } else if (document.getElementById('productos').style.display !== 'none') {
-        // Modal de producto
         setTimeout(() => {
           showNewTooltips(productModalTooltips);
         }, 500);
       }
     });
   });
-  
+
   // Event listener para cerrar los modales y volver a los tooltips de sección
-  document.querySelectorAll('.close').forEach(close => {
-    close.addEventListener('click', function() {
-      // Identificar de qué sección venimos
+  document.querySelectorAll('.close').forEach((close) => {
+    close.addEventListener('click', function () {
       if (document.getElementById('categorias').style.display !== 'none') {
-        // Volver a tooltips de categoría
         setTimeout(() => {
           showNewTooltips(categoryTooltips);
         }, 300);
       } else if (document.getElementById('productos').style.display !== 'none') {
-        // Volver a tooltips de producto
         setTimeout(() => {
           showNewTooltips(productTooltips);
         }, 300);
       } else {
-        // Volver a tooltips iniciales
         setTimeout(() => {
           showNewTooltips(initialTooltips);
         }, 300);

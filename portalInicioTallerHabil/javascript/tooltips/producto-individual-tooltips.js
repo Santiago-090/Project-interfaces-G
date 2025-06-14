@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
         text: 'Usa este botón para volver al menú de categorías.',
         position: 'bottom',
         highlight: true
-      },      {
+      },
+      {
         element: '.img',
         title: 'Imagen del Producto',
         text: 'Aquí puedes ver la imagen detallada del producto que has seleccionado.',
@@ -20,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         text: 'En este campo puedes seleccionar la cantidad de unidades que deseas adquirir.',
         position: 'bottom',
         highlight: true
-      },      {
+      },
+      {
         element: '.btn-add-cart',
         title: 'Añadir al Carrito',
         text: 'Haz clic en este botón para añadir este producto a tu carrito como opción de compra.',
@@ -38,8 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: 'Detalles del Producto',
       content: `
-                <p>Estás viendo los detalles completos de este producto.</p>
-                <p>Aquí puedes explorar sus características, seleccionar la cantidad deseada y agregarlo a tu carrito de compras.</p>
+                <p>En esta sección encontrarás toda la información detallada del producto que te interesa.</p>
                 <p>¿Te gustaría un recorrido por las opciones disponibles?</p>
             `
     }

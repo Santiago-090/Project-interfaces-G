@@ -13,7 +13,6 @@
     <h1>Pago por</h1>
     <h2>Elige el metodo de pago de tu preferencia</h2>
     <div class="container-wrapper">
-      <!-- Primer contenedor para la opción Davivienda -->
       <div class="container">
         <div class="text-section">
           <p class="text1">DAVIVIENDA</p>
@@ -28,7 +27,6 @@
         />
         <div id="imagenContainer_Daviplata" class="image-container"></div>
       </div>
-      <!-- Segundo contenedor para la opción Bancolombia -->
       <div class="container2">
         <div class="text-section">
           <p class="text1">BANCOLOMBIA</p>
@@ -45,6 +43,7 @@
       </div>
     </div>
     <h3>Solo se aceptan pagos por Daviplata o Bancolombia a la mano</h3>
+
     <script>
       function toggleImagen(containerId, imgUrl) {
         var container = document.getElementById(containerId);
@@ -62,14 +61,12 @@
         }
       }
 
-      // Añadir un evento de clic al botón de Daviplata
       document.getElementById('redirectButton').addEventListener('click', function () {
         setTimeout(function () {
           window.location.href = 'transferenciaExitosa.html';
         }, 10000);
       });
 
-      // Añadir un evento de clic al botón de Bancolombia
       document.getElementById('redirectButton2').addEventListener('click', function () {
         setTimeout(function () {
           window.location.href = 'transferenciaExitosa.html';

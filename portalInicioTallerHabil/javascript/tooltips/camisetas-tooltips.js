@@ -16,12 +16,13 @@ document.addEventListener('DOMContentLoaded', function () {
         highlight: true
       },
       {
-        element: '.container-icon',
+        element: '.icon-cart',
         title: 'Carrito de Compras',
         text: 'Haz clic en este botón para ver los productos que has seleccionado para tu compra.',
         position: 'bottom',
         highlight: true
-      },      {
+      },
+      {
         element: '.item:first-child .btn-add-cart',
         title: 'Añadir al Carrito',
         text: 'Haz clic en este botón para añadir este artículo a tu carrito y reservarlo para una posible compra.',
@@ -39,8 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: 'Catálogo de Productos',
       content: `
-                <p>Bienvenido a nuestro catálogo de productos.</p>
-                <p>Aquí podrás explorar nuestra colección y seleccionar los artículos de tu interés.</p>
+                <p>Te damos la bienvenida al catálogo de camisetas, donde encontrarás todos los modelos disponibles para tu elección.</p>
                 <p>¿Quieres conocer cómo navegar por esta sección?</p>
             `
     }

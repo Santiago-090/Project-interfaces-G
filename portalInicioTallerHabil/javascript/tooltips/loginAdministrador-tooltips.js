@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: 'Panel de Administrador',
       content: `
-                <p>Bienvenido al panel de acceso para administradores.</p>
-                <p>Ingresa tus credenciales para acceder a las funciones de gestión de la tienda.</p>
+                <p>Ingresa tus credenciales</p>
+                <p>¿Te gustaría un recorrido por las opciones disponibles?</p>
             `
     }
   );

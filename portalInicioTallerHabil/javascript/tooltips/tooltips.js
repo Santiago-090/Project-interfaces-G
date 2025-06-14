@@ -58,16 +58,18 @@ class TooltipSystem {
     modal.className = this.options.modalClass;
 
     modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h2 id="welcome-modal-title">Bienvenido</h2>
-                <div id="welcome-modal-content">
-                    <p>Bienvenido a nuestra tienda. Descubre todo lo que tenemos para ofrecerte.</p>
-                </div>
-                <button id="start-tour" class="${this.options.buttonClass} primary">Iniciar recorrido</button>
-                <button id="close-welcome" class="${this.options.buttonClass} secondary">Cerrar</button>
-            </div>
-        `;
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2 id="welcome-modal-title">Bienvenido</h2>
+          <div id="welcome-modal-content">
+            <p>Bienvenido a nuestra tienda. Descubre todo lo que tenemos para ofrecerte.</p>
+          </div>
+          <div style="display: flex; gap: 0px; justify-content: center;">
+          <button id="close-welcome" class="${this.options.buttonClass} secondary">Cerrar</button>
+            <button id="start-tour" class="${this.options.buttonClass} primary">Iniciar recorrido</button>
+          </div>
+        </div>
+      `;
 
     document.body.appendChild(modal);
 

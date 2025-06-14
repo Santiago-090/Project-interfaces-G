@@ -1,0 +1,148 @@
+body {
+  background: #1a1a1a;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  color: #1a1a1a;
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  padding: 10px 20px;
+}
+
+.header {
+  color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header img {
+  width: 50%;
+}
+
+.header .business-info {
+  text-align: right;
+}
+
+.header .business-info h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.line {
+  border-bottom: 2px solid #0077cc;
+  margin-bottom: 20px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.details .client {
+  width: 45%;
+}
+
+.details .invoice-info {
+  width: 45%;
+  text-align: right;
+}
+
+.details address,
+.details .invoice-info div {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #000000;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #9e9e9e;
+}
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.totals .invoice-note {
+  width: 60%;
+  margin-top: 60px;
+}
+
+.totals .summary {
+  width: 30%;
+  text-align: right;
+}
+
+.summary .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.summary .row div {
+  width: 50%;
+}
+
+.line-below-table {
+  border-top: 2px solid #0077cc;
+  margin: 18px 0;
+  width: 50%;
+  margin-left: auto;
+}
+
+.btn-factura {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.btn-imprimir {
+  color: #ffffff;
+  background-color: #0077cc;
+}
+
+.btn-imprimir:hover {
+  background-color: #005b99;
+  transform: scale(1.08);
+}
+
+.btn-indice {
+  color: #ffffff;
+  background-color: #0077cc;
+}
+
+.btn-indice:hover {
+  background-color: #e53935;
+  transform: scale(1.08);
+}

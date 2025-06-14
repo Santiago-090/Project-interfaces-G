@@ -1,118 +1,105 @@
-/* Estilos globales para todos los elementos y pseudoelementos */
 *::after,
 *::before,
 * {
-    margin: 0; /* Quita márgenes por defecto */
-    padding: 0; /* Quita relleno por defecto */
-    box-sizing: border-box; /* Ajusta el modelo de caja */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Estilos para el cuerpo del documento */
 body {
-    margin: 0 auto; /* Centra horizontalmente */
-    width: 100%; /* Ancho máximo */
-    font-family: Arial, sans-serif; /* Fuente del texto */
-    color: #1A1A1A; /* Color del texto */
+  margin: 0 auto;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  color: #1a1a1a;
 }
 
-/* Estilos para el elemento principal */
 main {
-    margin-top: -10px; /* Margen superior negativo */
-    padding: 20px; /* Relleno */
+  margin-top: -10px;
+  padding: 20px;
 }
 
-/* Estilos para el pie de página */
 footer {
-    background-color: #000000; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    margin-top: 100px; /* Margen superior */
-    padding: 10px 20px; /* Relleno */
-    text-align: center; /* Alineación del texto */
+  background-color: #000000;
+  color: #fff;
+  margin-top: 100px;
+  padding: 10px 20px;
+  text-align: center;
 }
 
-/* Estilo del carrusel de imágenes */
 main {
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Altura completa */
-    display: block; /* Muestra como bloque */
-    align-items: center; /* Centra los elementos verticalmente */
-    overflow: hidden; /* Oculta el desbordamiento */
+  width: 100%;
+  height: 100%;
+  display: block;
+  align-items: center;
+  overflow: hidden;
 }
 
-/* Estilos para los encabezados de nivel 3 */
 h2 {
-    margin-top: 80px;
-    text-align: left;
-    margin-left: 3%;
-    font-size: 30px; /* Tamaño de la fuente */
+  margin-top: 80px;
+  text-align: left;
+  margin-left: 3%;
+  font-size: 30px;
 }
 
-h4{
-    /* text-align: center; */
-    margin-top: 60px;
-    font-size: 20px;
-    margin-left: 45px;
+h4 {
+  margin-top: 60px;
+  font-size: 20px;
+  margin-left: 45px;
 }
 
-/* Estilos para el contenedor principal */
 .container {
-    width: 100%; /* Ancho completo */
-    height: 90vh; /* Altura del contenedor */
-    display: flex; /* Utiliza flexbox */
-    flex-direction: row; /* Dirección de los elementos */
-    overflow: hidden; /* Oculta el desbordamiento */
-    margin-top: -60px; /* Margen superior negativo */
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  margin-top: -60px;
 }
 
-/* Estilos para el contenedor de imágenes */
 .imgContainer {
-    width: 100%; /* Ancho completo */
-    height: 600px; /* Altura fija */
-    position: absolute; /* Posición absoluta */
-    left: 0; /* Posición izquierda */
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    transition: 1s; /* Transición suave */
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
 }
 
-/* Estilos para las imágenes dentro del contenedor */
 .imgContainer img {
-    object-fit: contain; /* Ajusta la imagen */
+  object-fit: contain;
 }
 
 /* Estilos para los contenedores deslizantes */
 .slide_div {
-    display: flex; /* Utiliza flexbox */
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    margin: 0 10px; /* Márgenes horizontal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
 }
 
-/* Estilos para las imágenes */
 img {
-    position: relative; /* Posición relativa */
-    height: 370px; /* Altura fija */
-    width: 240px; /* Ancho fijo */
-    filter: saturate(10%); /* Saturación del color */
-    transition: 0.7s; /* Transición suave */
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-    border-radius: 20px; /* Bordes redondeados */
+  position: relative;
+  height: 370px;
+  width: 240px;
+  filter: saturate(10%);
+  transition: 0.7s;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
 }
 
-/* Estilos para los botones */
 .button {
-    position: absolute; /* Posición absoluta */
-    width: 240px; /* Ancho fijo */
-    height: 370px; /* Altura fija */
-    transition: 0.7s; /* Transición suave */
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-    border-radius: 20px; /* Bordes redondeados */
+  position: absolute;
+  width: 240px;
+  height: 370px;
+  transition: 0.7s;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
 }
 
-/* Estilos para los botones al pasar el ratón */
 .button:hover {
-    background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos para los elementos del carrusel al estar seleccionados */
@@ -126,428 +113,406 @@ img {
 #slider4:target ~ .imgContainer #button4,
 #slider5:target ~ .imgContainer #img5,
 #slider5:target ~ .imgContainer #button5 {
-    width: 390px; /* Ancho ajustado */
-    height: 470px; /* Altura ajustada */
-    background-color: transparent; /* Fondo transparente */
-    filter: saturate(100%); /* Saturación total del color */
+  width: 390px;
+  height: 470px;
+  background-color: transparent;
+  filter: saturate(100%);
 }
 
 /* Estilos para la posición del contenedor de imágenes al seleccionar un slider */
 #slider1:target ~ .imgContainer {
-    left: 60%; /* Posición izquierda */
+  left: 60%;
 }
 #slider2:target ~ .imgContainer {
-    left: 30%; /* Posición izquierda */
+  left: 30%;
 }
 #slider3:target ~ .imgContainer {
-    left: 0%; /* Posición izquierda */
+  left: 0%;
 }
 #slider4:target ~ .imgContainer {
-    left: -30%; /* Posición izquierda */
+  left: -30%;
 }
 #slider5:target ~ .imgContainer {
-    left: -60%; /* Posición izquierda */
+  left: -60%;
 }
 
-/* Estilos para la segunda sección del contenedor */
 .container2 {
-    font-size: 20px; /* Tamaño de la fuente */
-    display: grid; /* Utiliza grid */
-    grid-template-columns: 1fr 1fr; /* Columnas de la grid */
-    text-align: left;
-    height: 180px; /* Altura fija */
-    margin-left: 60px;
-    column-gap: 30px;
-    margin-top: -100px;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+  height: 180px;
+  margin-left: 60px;
+  column-gap: 30px;
+  margin-top: -100px;
 }
 
 /* Estilos para las diferentes clases dentro del contenedor */
 .Cantidades {
-    margin-left: -445px; /* Margen izquierdo negativo */
-    padding-top: 3px;
+  margin-left: -445px;
+  padding-top: 3px;
 }
 .descripcion {
-    margin-left: -575px; /* Margen izquierdo negativo */
-    padding-top: 3px;
+  margin-left: -575px;
+  padding-top: 3px;
 }
 .parrafos {
-    margin-left: -640px; /* Margen izquierdo negativo */
-    padding-top: 3px;
+  margin-left: -640px;
+  padding-top: 3px;
 }
 .precio {
-    margin-left: -640px; /* Margen izquierdo negativo */
-    padding-top: 3px;
+  margin-left: -640px;
+  padding-top: 3px;
 }
 
-/* Estilos para los elementos SVG */
 svg {
-    width: 15px; /* Ancho fijo */
+  width: 15px;
 }
 
-/* Estilos para el tercer contenedor */
 .container3 {
-    margin-top: 30px; /* Margen superior */
+  margin-top: 30px;
 }
 
 /* Parte del input para agregar al carrito de compras */
 .formulario__grupo-input {
-    position: relative; /* Posición relativa */
-    margin-top: -30px; /* Margen superior negativo */
+  position: relative;
+  margin-top: -30px;
 }
 
 /* Estilos para las etiquetas de formulario */
 .formulario__label {
-    display: block; /* Muestra como bloque */
-    font-weight: bold; /* Grosor de la fuente */
-    padding: 50px; /* Relleno */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    font-size: 20px; /* Tamaño de la fuente */
-    text-align: center; /* Centra el texto */
-    padding-left: 250px; /* Relleno izquierdo */
+  display: block;
+  font-weight: bold;
+  padding: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  padding-left: 250px;
 }
 
 /* Estilos para los campos de entrada del formulario */
 .formulario__input {
-    width: 15%; /* Ancho fijo */
-    background: white; /* Fondo blanco */
-    border: 2px solid #0077CC; /* Borde negro */
-    border-radius: 10px; /* Bordes redondeados */
-    margin-left: 695px; /* Margen izquierdo */
-    margin-bottom: 25px; /* Margen inferior */
-    height: 100%; /* Altura completa */
-    line-height: 45px; /* Altura de línea */
-    padding: 10px 4px 10px 10px; /* Relleno */
-    transition: .3s ease all; /* Transición suave */
-    box-shadow: 1.5px 1.5px 1.5px #cc5d6a; /* Sombra */
+  width: 15%;
+  background: white;
+  border: 2px solid #0077cc;
+  border-radius: 10px;
+  margin-left: 695px;
+  margin-bottom: 25px;
+  height: 100%;
+  line-height: 45px;
+  padding: 10px 4px 10px 10px;
+  transition: 0.3s ease all;
+  box-shadow: 1.5px 1.5px 1.5px #cc5d6a;
 }
 
 /* Estilos para los campos de entrada al enfocarlos */
 .formulario__input:focus {
-    border: 3px solid #005B99; /* Borde verde */
-    outline: none; /* Sin contorno */
-    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4); /* Sombra */
+  border: 3px solid #005b99;
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
 }
 
 /* Estilos para el cuarto contenedor */
 .container4 {
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    margin-left: 440px; /* Margen izquierdo */
+  display: flex;
+  justify-content: center;
+  margin-left: 440px;
 }
 
 /* Estilos para los botones */
 .btn-add-cart {
-    display: block; /* Muestra como bloque */
-    margin-left: 35px; /* Margen izquierdo */
-    width: 160px; /* Ancho fijo */
-    height: 50px; /* Altura fija */
-    font-weight: 700; /* Grosor de la fuente */
-    border: none; /* Sin borde */
-    background: none; /* Sin fondo */
-    background-color: #2E7D32; /* Fondo negro */
-    color: #fff; /* Color del texto */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    border-radius: 10px; /* Bordes redondeados */
+  display: block;
+  margin-left: 35px;
+  width: 160px;
+  height: 50px;
+  font-weight: 700;
+  border: none;
+  background: none;
+  background-color: #2e7d32;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .btn-add-cart:hover {
-    background-color: #266e29; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.03); /* Escala el boton */
+  background-color: #266e29;
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 .regresar {
-    display: block; /* Muestra como bloque */
-    margin-left: 35px; /* Margen izquierdo */
-    width: 160px; /* Ancho fijo */
-    height: 50px; /* Altura fija */
-    font-weight: 700; /* Grosor de la fuente */
-    border: none; /* Sin borde */
-    background: none; /* Sin fondo */
-    background-color: #0077CC; /* Fondo negro */
-    color: #fff; /* Color del texto */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    border-radius: 10px; /* Bordes redondeados */
+  display: block;
+  margin-left: 35px;
+  width: 160px;
+  height: 50px;
+  font-weight: 700;
+  border: none;
+  background: none;
+  background-color: #0077cc;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .regresar:hover {
-    background-color: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.03); /* Escala el boton */
+  background-color: #005b99;
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 /* Estilos para el botón agregar */
 .agregar {
-    margin-top: -250px; /* Margen superior negativo */
-    margin-left: 100px; /* Margen izquierdo */
-    /* border: 1px solid #ddd; */ /* Borde comentado */
+  margin-top: -250px;
+  margin-left: 100px;
 }
 
-/* Estilos para el menú */
-
-/* Estilos para los encabezados h1 */
 h1 {
-    margin-left: 1%;
-    color: #ffffff; /* Color del texto */
-    padding-top: 10px; /* Relleno superior */
-    font-family: Arial, sans-serif; /* Fuente personalizada */
-    font-size: 30px; /* Tamaño de la fuente */
-    margin-bottom: -70px; /* Margen inferior negativo */
-    background-color: black; /* Color de fondo */
+  margin-left: 1%;
+  color: #ffffff;
+  padding-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  margin-bottom: -70px;
+  background-color: black;
 }
 
-/* Estilos para la barra superior */
 .container-BarraSuperior {
-    justify-self: center;
-    width: 100%; /* Ancho del contenedor */
-    margin-top: -40px; /* Margen superior negativo */
-    background-color: #000; /* Color de fondo */
-    padding-top: 28px; /* Relleno superior */
-    position: fixed;
-    z-index: 1000;
+  justify-self: center;
+  width: 100%;
+  margin-top: -40px;
+  background-color: #000;
+  padding-top: 28px;
+  position: fixed;
+  z-index: 1000;
 }
 
 /* Estilos para el icono del carrito */
 .icon-cart {
-    width: 40px; /* Ancho del icono */
-    height: 40px; /* Altura del icono */
-    stroke: #0077CC; /* Color del trazo */
-    margin-top: -90px; /* Margen superior negativo */
-    margin-left: 1445px; /* Margen izquierdo */
-    margin-bottom: 45px; /* Margen inferior */
-    
+  width: 40px;
+  height: 40px;
+  stroke: #0077cc;
+  margin-top: -90px;
+  margin-left: 1445px;
+  margin-bottom: 45px;
 }
 .icon-cart:hover {
-    stroke: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #005b99;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 /* Estilos para otros iconos del carrito */
 .icon-cart2 {
-    width: 40px;
-    height: 40px;
-    stroke: #0077CC;
-    margin-top: 30px;
-    margin-left: 1385px;
-    margin-bottom: 0.1%;
+  width: 40px;
+  height: 40px;
+  stroke: #0077cc;
+  margin-top: 30px;
+  margin-left: 1385px;
+  margin-bottom: 0.1%;
 }
 
 .icon-cart2:hover {
-    stroke: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #005b99;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .icon-cart3 {
-    width: 40px;
-    height: 40px;
-    stroke: #0077CC;
-    margin-top: -70px;
-    margin-left: 1313px;
-    margin-bottom: 1.5%;
+  width: 40px;
+  height: 40px;
+  stroke: #0077cc;
+  margin-top: -70px;
+  margin-left: 1313px;
+  margin-bottom: 1.5%;
 }
 
 .icon-cart3:hover {
-    stroke: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #005b99;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
-/* Estilos para las imágenes */
 img {
-    max-width: 100%; /* Ancho máximo completo */
+  max-width: 100%;
 }
 
-/* Estilos para el encabezado */
 header {
-    display: flex; /* Utiliza flexbox */
-    justify-content: space-between; /* Espacio entre elementos */
-    padding: 30px 0 40px 0; /* Relleno */
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0 40px 0;
 }
 
 /* Estilos para el contenedor de iconos */
 .container-icon {
-    position: relative; /* Posición relativa */
+  position: relative;
 }
 
 /* Estilos para el contador de productos */
 .count-products {
-    position: absolute; /* Posición absoluta */
-    top: -250%; /* Posición superior */
-    right: 2%; /* Posición derecha */
-    bottom: 30%; /* Posición inferior */
-    background-color: black; /* Fondo negro */
-    color: white; /* Color del texto */
-    width: 25px; /* Ancho fijo */
-    height: 25px; /* Altura fija */
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    border-radius: 50%; /* Bordes redondeados */
+  position: absolute;
+  top: -250%;
+  right: 2%;
+  bottom: 30%;
+  background-color: black;
+  color: white;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 /* Estilos para el número del contador */
 #contador-productos {
-    font-size: 16px; /* Tamaño de la fuente */
-    font-family: Arial, sans-serif; /* Fuente personalizada */
+  font-size: 16px;
+  font-family: Arial, sans-serif;
 }
 
 /* Estilos para el contenedor de productos del carrito */
 .container-cart-products {
-    position: absolute; /* Posición absoluta */
-    top: 50px; /* Posición superior */
-    right: 0; /* Posición derecha */
-    background-color: #fff; /* Fondo blanco */
-    width: 400px; /* Ancho fijo */
-    z-index: 1; /* Índice z */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20); /* Sombra */
-    border-radius: 10px; /* Bordes redondeados */
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  width: 400px;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 /* Estilos para cada producto en el carrito */
 .cart-product {
-    display: flex; /* Utiliza flexbox */
-    align-items: center; /* Centra verticalmente */
-    justify-content: space-between; /* Espacio entre elementos */
-    padding: 30px; /* Relleno */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20); /* Borde inferior */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos para la información del producto en el carrito */
 .info-cart-product {
-    display: flex; /* Utiliza flexbox */
-    justify-content: space-between; /* Espacio entre elementos */
-    flex: 0.8; /* Flexibilidad */
+  display: flex;
+  justify-content: space-between;
+  flex: 0.8;
 }
 
-/* Estilos para el título del producto en el carrito */
 .titulo-producto-carrito {
-    font-size: 20px; /* Tamaño de la fuente */
+  font-size: 20px;
 }
 
-/* Estilos para el precio del producto en el carrito */
 .precio-producto-carrito {
-    font-weight: 700; /* Grosor de la fuente */
-    font-size: 20px; /* Tamaño de la fuente */
-    margin-left: 10px; /* Margen izquierdo */
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
-/* Estilos para la cantidad del producto en el carrito */
 .cantidad-producto-carrito {
-    font-weight: 400; /* Grosor de la fuente */
-    font-size: 20px; /* Tamaño de la fuente */
-    padding-right: 10px; /* Relleno derecho */
+  font-weight: 400;
+  font-size: 20px;
+  padding-right: 10px;
 }
 
-/* Estilos para el icono de cerrar */
 .icon-close {
-    width: 25px; /* Ancho fijo */
-    height: 25px; /* Altura fija */
+  width: 25px;
+  height: 25px;
 }
 
-/* Estilos al pasar el ratón por el icono de cerrar */
 .icon-close:hover {
-    stroke: #E53935; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #e53935;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
-/* Estilos para el total del carrito */
 .cart-total {
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    padding: 20px 0; /* Relleno */
-    gap: 20px; /* Espacio entre elementos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
 }
 
-/* Estilos para el encabezado del total del carrito */
 .cart-total h3 {
-    font-size: 20px; /* Tamaño de la fuente */
-    font-weight: 700; /* Grosor de la fuente */
+  font-size: 20px;
+  font-weight: 700;
 }
 
-/* Estilos para el total a pagar */
 .total-pagar {
-    font-size: 20px; /* Tamaño de la fuente */
-    font-weight: 900; /* Grosor de la fuente */
-    padding-bottom: -200px;
+  font-size: 20px;
+  font-weight: 900;
+  padding-bottom: -200px;
 }
 
-/* Estilos para ocultar el carrito */
 .hidden-cart {
-    display: none; /* Oculta el elemento */
+  display: none;
 }
 
-/* Estilos para el botón de finalizar compra */
 .finalizar-compra {
-    border: none; /* Sin borde */
-    background: none; /* Sin fondo */
-    background-color: #2E7D32; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 15px 10px; /* Relleno interno */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    margin-left: 140px; /* Margen izquierdo */
-    margin-bottom: 15px; /* Margen inferior */
-    border-radius: 30px; /* Bordes redondeados */
+  border: none;
+  background: none;
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+  margin-left: 140px;
+  margin-bottom: 15px;
+  border-radius: 30px;
 }
 
 .finalizar-compra:hover {
-    background-color: #266e29; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.03); /* Escala el boton */ 
+  background-color: #266e29;
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 /* Estilos para la sección de reseñas */
 .reviews-section {
-    background-color: #f8f9fa; /* Fondo gris claro */
-    padding: 20px; /* Relleno */
-    margin: 20px 0; /* Márgenes superior e inferior */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para el encabezado de la sección de reseñas */
 .reviews-section h2 {
-    text-align: center; /* Centra el texto */
-    color: #333; /* Color del texto */
-    margin-bottom: 20px; /* Margen inferior */
-    font-family: 'Arial', sans-serif; /* Fuente personalizada */
-    font-size: 24px; /* Tamaño de la fuente */
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
 }
 
 /* Estilos para cada reseña */
 .review {
-    background: #ffffff; /* Fondo blanco */
-    padding: 15px; /* Relleno */
-    margin-bottom: 15px; /* Margen inferior */
-    border-radius: 8px; /* Bordes redondeados */
-    border-left: 5px solid #0077CC; /* Borde izquierdo verde */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  background: #ffffff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border-left: 5px solid #0077cc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para el encabezado de cada reseña */
 .review h3 {
-    margin: 0 0 10px; /* Márgenes */
-    color: #000000; /* Color del texto */
-    font-size: 20px; /* Tamaño de la fuente */
+  margin: 0 0 10px;
+  color: #000000;
+  font-size: 20px;
 }
 
 /* Estilos para el párrafo de cada reseña */
 .review p {
-    color: #555; /* Color del texto */
-    font-size: 16px; /* Tamaño de la fuente */
-    line-height: 1.5; /* Altura de línea */
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 /* Estilos para la calificación */
 .rating {
-    margin-top: 10px; /* Margen superior */
+  margin-top: 10px;
 }
 
 /* Estilos para los elementos de la calificación */
 .rating span {
-    font-size: 18px; /* Tamaño de la fuente */
-    color: yellow; /* Color del texto */
+  font-size: 18px;
+  color: yellow;
 }

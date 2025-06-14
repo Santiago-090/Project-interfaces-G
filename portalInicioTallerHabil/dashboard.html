@@ -11,9 +11,7 @@
     <script src="./javascript/tooltips/dashboard-tooltips.js" defer></script>
   </head>
   <body>
-    <!-- Contenedor principal del menú del dashboard -->
     <div class="menu-dashboard" id="menuDashboard">
-      <!-- Sección superior del menú -->
       <div class="top-menu">
         <div class="logo">
           <img src="https://cdn-icons-png.flaticon.com/128/1721/1721923.png" alt="" />
@@ -55,7 +53,9 @@
     </div>
     <!-- Sección de productos, oculta por defecto -->
     <div class="productos" id="productos" style="display: none">
-      <button class="btn-agregar" onclick="openModal('productoModal')">Agregar Producto</button>
+      <button class="btn-agregar btn-producto" onclick="openModal('productoModal')">
+        Agregar Producto
+      </button>
       <table id="tablaProductos">
         <thead>
           <tr>
@@ -78,24 +78,28 @@
         <h2>Agregar Nueva Categoría</h2>
         <p class="img-product">Seleccione la imagen del producto</p>
         <input type="file" id="imagenCategoriaInput" accept="image/*" />
-        <input type="text" id="idInput" placeholder="ID" />
-        <input type="text" id="nombreInput" placeholder="Nombre" />
-        <button onclick="agregarCategoria()">Agregar</button>
+        <div class="dateCategotyInputs" style="width: 100%">
+          <input type="text" id="idInput" placeholder="ID" />
+          <input type="text" id="nombreInput" placeholder="Nombre" />
+        </div>
+        <button onclick="agregarCategoria()" class="addCategotyButton">Agregar</button>
       </div>
     </div>
     <!-- Modal para agregar un nuevo producto -->
     <div class="modal" id="productoModal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal('productoModal')">&times;</span>
+        <span class="close closeProduct" onclick="closeModal('productoModal')">&times;</span>
         <h2>Agregar los Datos del Producto</h2>
         <p class="img-product">Seleccione la imagen del producto</p>
-        <input type="file" id="imagenInput" accept="image/*" />
-        <input type="text" id="nombreProductoInput" placeholder="Nombre" />
-        <input type="text" id="descripcionInput" placeholder="Descripción" />
-        <input type="number" id="precioInput" placeholder="Precio" />
-        <input type="number" id="cantidadInput" placeholder="Cantidad" />
-        <input type="text" id="categoriaProductoInput" placeholder="Categoría" />
-        <button onclick="agregarProducto()">Agregar</button>
+        <div class="dateProductInputs" style="width: 100%">
+          <input type="file" id="imagenInput" accept="image/*" />
+          <input type="text" id="nombreProductoInput" placeholder="Nombre" />
+          <input type="text" id="descripcionInput" placeholder="Descripción" />
+          <input type="number" id="precioInput" placeholder="Precio" />
+          <input type="number" id="cantidadInput" placeholder="Cantidad" />
+          <input type="text" id="categoriaProductoInput" placeholder="Categoría" />
+        </div>
+        <button onclick="agregarProducto()" class="addProductButton">Agregar</button>
       </div>
     </div>
 
