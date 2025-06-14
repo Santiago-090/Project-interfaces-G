@@ -10,9 +10,13 @@
     <script src="./javascript/tooltips/tooltips.js" defer></script>
     <script src="./javascript/tooltips/dashboard-tooltips.js" defer></script>
   </head>
-  <body>
-    <div class="menu-dashboard" id="menuDashboard">
-      <div class="top-menu">
+</head>
+<!-- mensaje de error  -->
+<body>
+  <div id="notificacion" class="notificacion hidden">Mensaje</div>
+  <div class="menu-dashboard" id="menuDashboard">
+    <!-- Sección superior del menú -->
+    <div class="top-menu">
         <div class="logo">
           <img src="https://cdn-icons-png.flaticon.com/128/1721/1721923.png" alt="" />
           <span>Urban Street Admin</span>
@@ -77,10 +81,16 @@
         <span class="close" onclick="closeModal('categoriaModal')">&times;</span>
         <h2>Agregar Nueva Categoría</h2>
         <p class="img-product">Seleccione la imagen del producto</p>
+
         <input type="file" id="imagenCategoriaInput" accept="image/*" />
+        <div class="error-message" id="error-imagenCategoriaInput"></div>
+
         <div class="dateCategotyInputs" style="width: 100%">
           <input type="text" id="idInput" placeholder="ID" />
+          <div class="error-message" id="error-idInput"></div>
+
           <input type="text" id="nombreInput" placeholder="Nombre" />
+          <div class="error-message" id="error-nombreInput"></div>
         </div>
         <button onclick="agregarCategoria()" class="addCategotyButton">Agregar</button>
       </div>
@@ -92,17 +102,29 @@
         <h2>Agregar los Datos del Producto</h2>
         <p class="img-product">Seleccione la imagen del producto</p>
         <div class="dateProductInputs" style="width: 100%">
+          
           <input type="file" id="imagenInput" accept="image/*" />
+          <div class="error-message" id="error-imagenInput"></div>
+
           <input type="text" id="nombreProductoInput" placeholder="Nombre" />
+          <div class="error-message" id="error-nombreProductoInput"></div>
+
           <input type="text" id="descripcionInput" placeholder="Descripción" />
+          <div class="error-message" id="error-descripcionInput"></div>
+
           <input type="number" id="precioInput" placeholder="Precio" />
+          <div class="error-message" id="error-precioInput"></div>
+          
           <input type="number" id="cantidadInput" placeholder="Cantidad" />
+          <div class="error-message" id="error-cantidadInput"></div>
+
           <input type="text" id="categoriaProductoInput" placeholder="Categoría" />
+          <div class="error-message" id="error-categoriaProductoInput"></div>
         </div>
         <button onclick="agregarProducto()" class="addProductButton">Agregar</button>
       </div>
     </div>
-
-    <script src="./javascript/app.js"></script>
-  </body>
+  </div>
+  <script src="./javascript/app.js"></script>
+</body>
 </html>

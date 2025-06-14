@@ -141,6 +141,32 @@ body {
   color: #0077cc;
 }
 
+/* estilos de los mensajes de error */
+.notificacion {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notificacion.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.notificacion.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .container {
     height: 500px;

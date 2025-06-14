@@ -199,7 +199,7 @@ p:not(#welcome-modal-content p, .tooltip-text) {
   display: block;
   width: calc(98% - 22px);
   padding: 10px;
-  margin: 10px auto;
+  margin: 0 auto;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
 }
@@ -219,6 +219,45 @@ p:not(#welcome-modal-content p, .tooltip-text) {
   width: calc(30% - 22px);
   display: block;
   margin: 10px auto;
+}
+
+/* Estilos para los inputs dentro del modal */
+.field-group input[type='text'],
+.field-group input[type='number'],
+.field-group input[type='file'] {
+  width: 470px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  margin-top: 4px;
+  transition: border 0.2s ease;
+}
+
+/* Al enfocarse */
+.field-group input:hover {
+  border: 2px solid #005b99; /* Borde */
+  cursor: pointer;
+}
+
+/* Cuando hay error */
+.field-group input.field-error {
+  border: 1px solid #e53935 !important;
+  background-color: #fffafa;
+}
+
+/* Mensaje de error debajo de los inputs */
+.error-message {
+  color: #e53935;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+/* Espaciado entre campos */
+.field-group {
+  margin-bottom: 16px;
 }
 
 .modal-content button:hover {
@@ -250,4 +289,46 @@ table th {
 table img {
   max-width: 50px;
   max-height: 50px;
+}
+
+/* estilos de los mensajes de error */
+.notificacion {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #e53935; /* rojo por defecto */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notificacion.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.notificacion.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.field-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.error-message {
+  color: #e53935;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  min-height: 1em;
+}
+
+.field-error {
+  border: 1px solid #e53935 !important;
 }

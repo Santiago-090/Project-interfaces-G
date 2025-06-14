@@ -138,6 +138,7 @@ function irAPagina_Detalles_perfumeria() {
   window.location.href = 'producto-individual-perfumeria.html';
 }
 
+// funcion para validar si el carrito tiene productos 
 function irAPagina_pago() {
   if (allProducts.length === 0) {
     mostrarMensajeError('Debes añadir al menos un producto al carrito antes de pagar.');

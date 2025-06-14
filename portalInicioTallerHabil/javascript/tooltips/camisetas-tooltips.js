@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: 'Catálogo de Productos',
       content: `
-                <p>Te damos la bienvenida al catálogo de camisetas, donde encontrarás todos los modelos disponibles para tu elección.</p>
+                <p>Te damos la bienvenida al catálogo de productos, donde encontrarás todos los modelos disponibles para tu elección.</p>
                 <p>¿Quieres conocer cómo navegar por esta sección?</p>
             `
     }
@@ -125,37 +125,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
       showNextCartTooltip();
     }, 300);
-  });
-
-  // Evento para cuando se añade un producto al carrito
-  document.querySelectorAll('.btn-add-cart').forEach((button) => {
-    button.addEventListener('click', function () {
-      setTimeout(() => {
-        const tempTooltip = document.createElement('div');
-        tempTooltip.className = 'custom-tooltip tooltip-active';
-        tempTooltip.style.top = '50%';
-        tempTooltip.style.left = '50%';
-        tempTooltip.style.transform = 'translate(-50%, -50%)';
-        tempTooltip.innerHTML = `
-          <div class="tooltip-content">
-            <h4 class="tooltip-title">¡Producto Añadido!</h4>
-            <p class="tooltip-text">El producto ha sido añadido a tu carrito correctamente.</p>
-            <div class="tooltip-buttons">
-              <button class="tooltip-button next">Aceptar</button>
-            </div>
-          </div>
-        `;
-
-        document.getElementById('tooltip-container').appendChild(tempTooltip);
-
-        tempTooltip.querySelector('.next').addEventListener('click', () => {
-          tempTooltip.remove();
-        });
-
-        setTimeout(() => {
-          tempTooltip.remove();
-        }, 3000);
-      }, 300);
-    });
   });
 });
