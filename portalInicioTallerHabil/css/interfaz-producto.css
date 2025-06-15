@@ -278,6 +278,7 @@ header {
   cursor: pointer;
   transform: scale(1.03);
 }
+
 /* Estilos para el botón de finalizar compra */
 .finalizar-compra {
   border: none;
@@ -331,6 +332,7 @@ footer {
   text-align: center;
 }
 
+/* estilos de los mensajes de error  */
 .notificacion {
   position: fixed;
   bottom: 30px;
