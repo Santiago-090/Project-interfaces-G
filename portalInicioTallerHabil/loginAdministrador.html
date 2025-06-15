@@ -1,54 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URBANSTREET</title>
-    <!-- Enlace a la hoja de estilos CSS externa -->
-    <link rel="stylesheet" href="./css/loginAdministrador.css">
-    <!-- Enlace a los iconos de Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Enlace al archivo JavaScript externo -->
+    <link rel="stylesheet" href="./css/loginAdministrador.css" />
+    <link rel="stylesheet" href="./css/tooltips.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <script src="./javascript/loginAdministrador.js"></script>
-</head>
-<!-- mensaje de error -->
-<div id="notificacion" class="notificacion hidden">Mensaje</div>
-<body>
-    <!-- Contenedor principal -->
+    <script src="./javascript/tooltips/tooltips.js" defer></script>
+    <script src="./javascript/tooltips/loginAdministrador-tooltips.js" defer></script>
+  </head>
+  <body>
     <div class="container">
-        <!-- Contenedor del formulario -->
-        <div class="form-box">
-            <!-- Formulario de login -->
-            <form action="#">
-                <!-- Título del formulario -->
-                <h2>Login</h2>
-                <h2>Administrador</h2>
-                <!-- Campo de entrada para el nombre de usuario -->
-                <div class="input-box">
-                    <input type="text" id="nombreUsuario" required>
-                    <label>Nombre Usuario</label>
-                    <!-- Icono de usuario -->
-                    <i class='bx bxs-user'></i>
-                </div>
-                <!-- Campo de entrada para la contraseña -->
-                <div class="input-box">
-                    <input type="password" id="contraseña" required>
-                    <label>Contraseña</label>
-                    <!-- Icono de candado -->
-                    <i class='bx bxs-lock-alt'></i>
-                </div>
-                <!-- Sección para el enlace de olvido de contraseña -->
-                <div class="forget-section">
-                    <a onclick="olvidoContraseña()" type="button">¿Olvidaste tu contraseña?</a>
-                </div>
-                <!-- Botón de inicio de sesión -->
-                <button class="btn" id="btn" onclick="loguear()" type="button">Entrar</button>
-                <!-- Enlace para volver al índice -->
-                <div class="account-creation">
-                    <span><a href="indice.html">Volver al indice</a></span>
-                </div>
-            </form>
-        </div>
+      <div class="form-box">
+        <form action="#">
+          <h2>Login</h2>
+          <h2>Administrador</h2>
+          <div class="credenciales">
+            <div class="input-box">
+              <input type="text" id="nombreUsuario" required />
+              <label>Nombre Usuario</label>
+              <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="password" id="contraseña" required />
+              <label>Contraseña</label>
+              <i class="bx bxs-lock-alt"></i>
+            </div>
+          </div>
+          <div class="forget-section">
+            <a onclick="olvidoContraseña()" type="button">¿Olvidaste tu contraseña?</a>
+          </div>
+          <button class="btn" id="btn" onclick="loguear()" type="button">Entrar</button>
+          <div class="account-creation">
+            <span><a href="indice.html">Volver al indice</a></span>
+          </div>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

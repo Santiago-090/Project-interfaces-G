@@ -3,75 +3,40 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Tienda</title>
-		<!-- aqui se hace un link para conectar con los estilos del css  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tienda - Gorras</title>
 		<link rel="stylesheet" href="./css/interfaz-producto.css" />
+		<link rel="stylesheet" href="./css/tooltips.css" />
+		<script src="./javascript/tooltips/tooltips.js" defer></script>
+		<script src="./javascript/tooltips/camisetas-tooltips.js" defer></script>
 	</head>
 	<!-- mensaje de error -->
 	<div id="notificacion" class="notificacion hidden">
   		Producto añadido al carrito 🛒
 	</div>
 	<body>
+		<div id="notificacion" class="notificacion hidden">
+			Producto añadido al carrito 🛒
+		</div>
 		<header>
 			<div class="container-BarraSuperior">
 				<h1>URBAN STREET / Tienda Online</h1>
 				<div class="container-icon-cart">
-					<!-- parte del contacto -->
 					<a href="contacto.html"  class="post-link">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 18 18"
-						stroke-width="1"
-						stroke="currentColor"
-						class="icon-cart2"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-						/>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" stroke-width="1" stroke="currentColor" class="icon-cart2" >
+						<path stroke-linecap="round" stroke-linejoin="round" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
 					</svg>
 				</a>
 				</div>
-				<!-- parte de volver al indice principal -->
 				<a href="indice.html" class="post-link">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 18 18"
-						stroke-width="0.9"
-						stroke="currentColor"
-						class="icon-cart3"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"
-						/>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" stroke-width="0.9" stroke="currentColor" class="icon-cart3" >
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
 					</svg>
 				</a>
-				<!-- parte del carrito de compras de la tienda -->
 				<div class="container-icon">
 					<div class="container-cart-icon">
-						
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="icon-cart"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-							/>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart" >
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
 						</svg>
 						
 						<div class="count-products">
@@ -87,23 +52,11 @@
 									<p class="titulo-producto-carrito"></p>
 									<span class="precio-producto-carrito"></span>
 								</div>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="icon-close"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M6 18L18 6M6 6l12 12"
-									/>
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close icon-cart" >
+									<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 								</svg>
 							</div>
 						</div>
-	
 						<div class="cart-total hidden">
 							<h3>Total:</h3>
 							<span class="total-pagar"></span>
@@ -112,19 +65,14 @@
 						<button onclick="irAPagina_pago()" type="submit" class="finalizar-compra">Finalizar Compra</button>
 					</div>
 				</div>
-			</header>
 			</div>
-			<!-- parte para mostrar los productos  -->
-			<h3>Categoria Gorras / Hombre</h3>
-			<h4>Para cada outfit debe tener su gorra, ¡elige el tuyo.🧢!</h4>
+		</header>
+		<h3>Categoria Gorras / Hombre</h3>
+		<h4>Para cada outfit debe tener su gorra, ¡elige el tuyo.🧢!</h4>
 		<div class="container-items">
-			<!-- vista del producto 1  -->
 			<div class="item">
 				<figure>
-					<img
-						src="./fotos ropa/gorra-1.jpg"
-						alt="producto"
-					/>
+					<img src="./fotos ropa/gorra-1.jpg" alt="producto" />
 				</figure>
 				<div class="info-product">
 					<h2>Gorra NY</h2>
@@ -133,13 +81,9 @@
 					<span> <button onclick="irAPagina_Detalles_gorras()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 2  -->
 			<div class="item">
 				<figure>
-					<img
-						src="./fotos ropa/3.2.jpg"
-						alt="producto"
-					/>
+					<img src="./fotos ropa/3.2.jpg" alt="producto" />
 				</figure>
 				<div class="info-product">
 					<h2>Gorras Nike Jordan pro</h2>
@@ -148,28 +92,20 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 3  -->
 			<div class="item">
 				<figure>
-					<img
-						src="./fotos ropa/3.3.jpg"
-						alt="producto"
-					/>
+					<img src="./fotos ropa/3.3.jpg" alt="producto" />
 				</figure>
 				<div class="info-product">
 					<h2>Gorra de Beisbol New Era</h2>
 					<p class="price">$60000</p>
 					<button class="btn-add-cart">Añadir al carrito</button> 
-					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
+					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button> </span>
 				</div>
 			</div>
-			<!-- vista del producto 4  -->
 			<div class="item">
 				<figure>
-					<img
-						src="./fotos ropa/3.4.jpg"
-						alt="producto"
-					/>
+					<img src="./fotos ropa/3.4.jpg" alt="producto" />
 				</figure>
 				<div class="info-product">
 					<h2>Gorra Adidas Blanca</h2>
@@ -178,13 +114,9 @@
 					<span> <button onclick="irAPagina_Detalles()" type="submit" class="btn-detalles"> Detalles</button></span>
 				</div>
 			</div>
-			<!-- vista del producto 5  -->
 			<div class="item">
 				<figure>
-					<img
-						src="./fotos ropa/3.5.jpg"
-						alt="producto"
-					/>
+					<img src="./fotos ropa/3.5.jpg" alt="producto" />
 				</figure>
 				<div class="info-product">
 					<h2>Gorra Nike Negro</h2>
@@ -194,11 +126,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- aqui se hace un script para los eventos del js  -->
-		<script src="./javascript/interfaz-producto.js"></script>
-		<!-- aqui se hace un footer con los datos y direccion de la tienda fisica-->
 		<footer>
 			<p>&copy; 2024 Tienda Online. Todos los derechos reservados. Carrera 23 # 14-55 / La Unión, Valle del Cauca</p>
 		</footer>
+
+		<script src="./javascript/interfaz-producto.js"></script>
 	</body>
 </html>

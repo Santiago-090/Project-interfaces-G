@@ -1,163 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <!-- Enlace al archivo CSS para estilos personalizados -->
-    <link rel="stylesheet" href="./css/estilos.css">
-    <!-- Enlace a la biblioteca Font Awesome para íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/estilos.css" />
+    <link rel="stylesheet" href="./css/tooltips.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="./javascript/tooltips/tooltips.js" defer></script>
+    <script src="./javascript/tooltips/dashboard-tooltips.js" defer></script>
+  </head>
 </head>
 <!-- mensaje de error  -->
-<div id="notificacion" class="notificacion hidden">Mensaje</div>
-<body> 
-
-<!-- Contenedor principal del menú del dashboard -->
-<div class="menu-dashboard" id="menuDashboard">
+<body>
+  <div id="notificacion" class="notificacion hidden">Mensaje</div>
+  <div class="menu-dashboard" id="menuDashboard">
     <!-- Sección superior del menú -->
     <div class="top-menu">
         <div class="logo">
-            <!-- Logotipo del dashboard -->
-            <img src="https://cdn-icons-png.flaticon.com/128/1721/1721923.png" alt="">
-            <span>Urban Street Admin</span>
+          <img src="https://cdn-icons-png.flaticon.com/128/1721/1721923.png" alt="" />
+          <span>Urban Street Admin</span>
         </div>
-        <!-- Botón para colapsar o expandir el menú -->
         <div class="toggle" onclick="toggleMenu()">
-            <i class="fa fa-bars"></i>
+          <i class="fa fa-bars"></i>
         </div>
+      </div>
+      <div class="menu">
+        <div class="enlace icon-menu" onclick="irAPagina_indice()">
+          <i class="fa fa-list"></i>
+          <span>Menú</span>
+        </div>
+        <div class="enlace icon-category" onclick="toggleCategories()">
+          <i class="fa fa-th-large"></i>
+          <span>Categoría</span>
+        </div>
+        <div class="enlace icon-product" onclick="toggleProductos()">
+          <i class="fa fa-shopping-cart"></i>
+          <span>Producto</span>
+        </div>
+      </div>
     </div>
-    <!-- Opciones del menú -->
-    <div class="menu">
-        <div class="enlace" onclick="irAPagina_indice()">
-            <i class="fa fa-list"></i>
-            <span>Menú</span>
-        </div>
-        <div class="enlace" onclick="toggleCategories()">
-            <i class="fa fa-th-large"></i>
-            <span>Categoría</span>
-        </div>
-        <div class="enlace" onclick="toggleProductos()">
-            <i class="fa fa-shopping-cart"></i>
-            <span>Producto</span>
-        </div>
+    <!-- Sección de categorías, oculta por defecto -->
+    <div class="categorias" id="categorias" style="display: none">
+      <button class="btn-agregar" onclick="openModal('categoriaModal')">Agregar Categoría</button>
+      <table id="tablaCategorias">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="categoriaListaTabla"></tbody>
+      </table>
     </div>
-</div>
-
-<!-- Sección de categorías, oculta por defecto -->
-<div class="categorias" id="categorias" style="display: none;">
-    <!-- Botón para abrir el modal de agregar categoría -->
-    <button class="btn-agregar" onclick="openModal('categoriaModal')">Agregar Categoría</button>
-    <!-- Tabla para listar las categorías -->
-    <table id="tablaCategorias">
+    <!-- Sección de productos, oculta por defecto -->
+    <div class="productos" id="productos" style="display: none">
+      <button class="btn-agregar btn-producto" onclick="openModal('productoModal')">
+        Agregar Producto
+      </button>
+      <table id="tablaProductos">
         <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Eliminar</th>
-            </tr>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Categoría</th>
+            <th>Eliminar</th>
+          </tr>
         </thead>
-        <tbody id="categoriaListaTabla">
-            <!-- Aquí se generan dinámicamente las categorías -->
-        </tbody>
-    </table>
-</div>
-
-<!-- Sección de productos, oculta por defecto -->
-<div class="productos" id="productos" style="display: none;">
-    <!-- Botón para abrir el modal de agregar producto -->
-    <button class="btn-agregar" onclick="openModal('productoModal')">Agregar Producto</button>
-    <!-- Tabla para listar los productos -->
-    <table id="tablaProductos">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Categoría</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody id="productoListaTabla">
-            <!-- Aquí se generan dinámicamente los productos -->
-        </tbody>
-    </table>
-</div>
-
-<!-- Modal para agregar una nueva categoría -->
-<div class="modal" id="categoriaModal">
-    <div class="modal-content">
+        <tbody id="productoListaTabla"></tbody>
+      </table>
+    </div>
+    <!-- Modal para agregar una nueva categoría -->
+    <div class="modal" id="categoriaModal">
+      <div class="modal-content">
         <span class="close" onclick="closeModal('categoriaModal')">&times;</span>
         <h2>Agregar Nueva Categoría</h2>
-        <!-- Formulario para agregar una nueva categoría -->
-        <div class="field-group">
-  <p class="img-product">Seleccione la imagen de la categoría</p>
-  <input type="file" id="imagenCategoriaInput" accept="image/*">
-  <div class="error-message" id="error-imagenCategoriaInput"></div>
-</div>
+        <p class="img-product">Seleccione la imagen del producto</p>
 
-<div class="field-group">
-  <input type="text" id="idInput" placeholder="ID">
-  <div class="error-message" id="error-idInput"></div>
-</div>
+        <input type="file" id="imagenCategoriaInput" accept="image/*" />
+        <div class="error-message" id="error-imagenCategoriaInput"></div>
 
-<div class="field-group">
-  <input type="text" id="nombreInput" placeholder="Nombre">
-  <div class="error-message" id="error-nombreInput"></div>
-</div>
+        <div class="dateCategotyInputs" style="width: 100%">
+          <input type="text" id="idInput" placeholder="ID" />
+          <div class="error-message" id="error-idInput"></div>
 
-<button onclick="agregarCategoria()">Agregar</button>
-
+          <input type="text" id="nombreInput" placeholder="Nombre" />
+          <div class="error-message" id="error-nombreInput"></div>
+        </div>
+        <button onclick="agregarCategoria()" class="addCategotyButton">Agregar</button>
+      </div>
     </div>
-</div>
-
-<!-- Modal para agregar un nuevo producto -->
-<div class="modal" id="productoModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('productoModal')">&times;</span>
+    <!-- Modal para agregar un nuevo producto -->
+    <div class="modal" id="productoModal">
+      <div class="modal-content">
+        <span class="close closeProduct" onclick="closeModal('productoModal')">&times;</span>
         <h2>Agregar los Datos del Producto</h2>
-        <!-- Formulario para agregar un nuevo producto -->
-        <div class="field-group">
-            <p class="img-product">Seleccione la imagen del producto</p>
-            <input type="file" id="imagenInput" accept="image/*">
-        <div class="error-message" id="error-imagenInput"></div>
+        <p class="img-product">Seleccione la imagen del producto</p>
+        <div class="dateProductInputs" style="width: 100%">
+          
+          <input type="file" id="imagenInput" accept="image/*" />
+          <div class="error-message" id="error-imagenInput"></div>
+
+          <input type="text" id="nombreProductoInput" placeholder="Nombre" />
+          <div class="error-message" id="error-nombreProductoInput"></div>
+
+          <input type="text" id="descripcionInput" placeholder="Descripción" />
+          <div class="error-message" id="error-descripcionInput"></div>
+
+          <input type="number" id="precioInput" placeholder="Precio" />
+          <div class="error-message" id="error-precioInput"></div>
+          
+          <input type="number" id="cantidadInput" placeholder="Cantidad" />
+          <div class="error-message" id="error-cantidadInput"></div>
+
+          <input type="text" id="categoriaProductoInput" placeholder="Categoría" />
+          <div class="error-message" id="error-categoriaProductoInput"></div>
         </div>
-
-        <div class="field-group">
-            <input type="text" id="nombreProductoInput" placeholder="Nombre">
-            <div class="error-message" id="error-nombreProductoInput"></div>
-        </div>
-
-        <div class="field-group">
-            <input type="text" id="descripcionInput" placeholder="Descripción">
-            <div class="error-message" id="error-descripcionInput"></div>
-        </div>
-
-        <div class="field-group">
-            <input type="number" id="precioInput" placeholder="Precio">
-            <div class="error-message" id="error-precioInput"></div>
-        </div>
-
-        <div class="field-group">
-            <input type="number" id="cantidadInput" placeholder="Cantidad">
-            <div class="error-message" id="error-cantidadInput"></div>
-        </div>
-
-        <div class="field-group">
-            <input type="text" id="categoriaProductoInput" placeholder="Categoría">
-            <div class="error-message" id="error-categoriaProductoInput"></div>
-        </div>
-
-<button onclick="agregarProducto()">Agregar</button>
-
+        <button onclick="agregarProducto()" class="addProductButton">Agregar</button>
+      </div>
     </div>
-</div>
-
-<!-- Enlace al archivo JavaScript para la funcionalidad del dashboard -->
-<script src="./javascript/app.js"></script>
-
+  </div>
+  <script src="./javascript/app.js"></script>
 </body>
 </html>

@@ -1,87 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desplegar imagen</title>
-    <!-- Enlace a la hoja de estilos CSS externa -->
-    <link rel="stylesheet" href="./css/transferencia.css">
-</head>
-<body>
-    <!-- Encabezado principal de la página -->
+    <link rel="stylesheet" href="./css/transferencia.css" />
+    <link rel="stylesheet" href="./css/tooltips.css" />
+    <script src="./javascript/tooltips/tooltips.js" defer></script>
+    <script src="./javascript/tooltips/transferencia-tooltips.js" defer></script>
+  </head>
+  <body>
     <h1>Pago por</h1>
     <h2>Elige el metodo de pago de tu preferencia</h2>
-    <!-- Contenedor principal -->
     <div class="container-wrapper">
-        <!-- Primer contenedor para la opción Davivienda -->
-        <div class="container">
-            <!-- Sección de texto descriptivo -->
-            <div class="text-section">
-                <p class="text1">DAVIVIENDA</p>
-                <p class="text2">DAVIPLATA</p>
-            </div>
-            <!-- Imagen que actúa como botón para mostrar/ocultar el QR de Daviplata -->
-            <img class="daviplata logo" id="redirectButton" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d3/99/ec/d399ecc1-ca88-6a55-04c8-5e44b286656d/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/1200x600wa.png" alt="Daviplata" onclick="toggleImagen('imagenContainer_Daviplata', './fotos ropa/QR DaviPlata.jpg')">
-            <!-- Contenedor para la imagen QR de Daviplata -->
-            <div id="imagenContainer_Daviplata" class="image-container"></div>
+      <div class="container">
+        <div class="text-section">
+          <p class="text1">DAVIVIENDA</p>
+          <p class="text2">DAVIPLATA</p>
         </div>
-        <!-- Segundo contenedor para la opción Bancolombia -->
-        <div class="container2">
-            <!-- Sección de texto descriptivo -->
-            <div class="text-section">
-                <p class="text1">BANCOLOMBIA</p>
-                <p class="text2">A LA MANO</p>
-            </div>
-            <!-- Imagen que actúa como botón para mostrar/ocultar el QR de Bancolombia -->
-            <img class="bancolombia logo" id="redirectButton2" src="https://play-lh.googleusercontent.com/r5rir6VaWDv091Kiq2KZXt9Hspg9KqJfcU80cfEZhiOxCdWNu2wdlbSrleayH90jvtZd=w240-h480-rw" alt="Bancolombia" onclick="toggleImagen('imagenContainer_Bancolombia', './fotos ropa/QR Bamcolombia a la mano Nuevo.jpg')">
-            <!-- Contenedor para la imagen QR de Bancolombia -->
-            <div id="imagenContainer_Bancolombia" class="image-container"></div>
+        <img
+          class="daviplata logo"
+          id="redirectButton"
+          src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d3/99/ec/d399ecc1-ca88-6a55-04c8-5e44b286656d/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/1200x600wa.png"
+          alt="Daviplata"
+          onclick="toggleImagen('imagenContainer_Daviplata', './fotos ropa/QR DaviPlata.jpg')"
+        />
+        <div id="imagenContainer_Daviplata" class="image-container"></div>
+      </div>
+      <div class="container2">
+        <div class="text-section">
+          <p class="text1">BANCOLOMBIA</p>
+          <p class="text2">A LA MANO</p>
         </div>
+        <img
+          class="bancolombia logo"
+          id="redirectButton2"
+          src="https://play-lh.googleusercontent.com/r5rir6VaWDv091Kiq2KZXt9Hspg9KqJfcU80cfEZhiOxCdWNu2wdlbSrleayH90jvtZd=w240-h480-rw"
+          alt="Bancolombia"
+          onclick="toggleImagen('imagenContainer_Bancolombia', './fotos ropa/QR Bamcolombia a la mano Nuevo.jpg')"
+        />
+        <div id="imagenContainer_Bancolombia" class="image-container"></div>
+      </div>
     </div>
-
     <h3>Solo se aceptan pagos por Daviplata o Bancolombia a la mano</h3>
 
     <script>
-        /**
-         * Función para mostrar/ocultar una imagen en un contenedor específico.
-         * @param {string} containerId - El ID del contenedor donde se mostrará la imagen.
-         * @param {string} imgUrl - La URL de la imagen a mostrar.
-         */
-        function toggleImagen(containerId, imgUrl) {
-            // Obtener el contenedor por su ID
-            var container = document.getElementById(containerId);
-            // Buscar una imagen dentro del contenedor
-            var img = container.querySelector('img');
-            // Si la imagen ya está presente, eliminarla
-            if (img) {
-                container.removeChild(img);
-            } else {
-                // Crear una nueva imagen y establecer su fuente
-                img = document.createElement('img');
-                img.src = imgUrl;
-                img.style.maxWidth = '100%'; // Ajuste para que la imagen ocupe el ancho disponible
-                img.style.height = 'auto'; // Mantiene la relación de aspecto
-                // Añadir la imagen al contenedor
-                container.appendChild(img);
-            }
+      function toggleImagen(containerId, imgUrl) {
+        var container = document.getElementById(containerId);
+        var img = container.querySelector('img');
+
+        if (img) {
+          container.removeChild(img);
+        } else {
+          img = document.createElement('img');
+          img.src = imgUrl;
+          img.style.maxWidth = '100%';
+
+          img.style.height = 'auto';
+          container.appendChild(img);
         }
+      }
 
-        // Añadir un evento de clic al botón de Daviplata
-        document.getElementById('redirectButton').addEventListener('click', function() {
-            setTimeout(function() {
-                // Redirigir a 'transferenciaExitosa.html' después de 10 segundos
-                window.location.href = 'transferenciaExitosa.html';
-            }, 10000); // 10000 milisegundos = 10 segundos
-        });
+      document.getElementById('redirectButton').addEventListener('click', function () {
+        setTimeout(function () {
+          window.location.href = 'transferenciaExitosa.html';
+        }, 10000);
+      });
 
-        // Añadir un evento de clic al botón de Bancolombia
-        document.getElementById('redirectButton2').addEventListener('click', function() {
-            setTimeout(function() {
-                // Redirigir a 'transferenciaExitosa.html' después de 10 segundos
-                window.location.href = 'transferenciaExitosa.html';
-            }, 10000); // 10000 milisegundos = 10 segundos
-        });
-
+      document.getElementById('redirectButton2').addEventListener('click', function () {
+        setTimeout(function () {
+          window.location.href = 'transferenciaExitosa.html';
+        }, 10000);
+      });
     </script>
-</body>
+  </body>
 </html>

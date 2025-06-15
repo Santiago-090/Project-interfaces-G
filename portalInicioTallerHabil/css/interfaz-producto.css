@@ -1,382 +1,348 @@
-/* Estilos globales */
 *::after,
 *::before,
 * {
-    margin: 0; /* Quita márgenes por defecto */
-    padding: 0; /* Quita relleno por defecto */
-    box-sizing: border-box; /* Ajusta el modelo de caja */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Estilos para el cuerpo del documento */
 body {
-    margin: 0 auto; /* Centra horizontalmente */
-    width: 100%; /* Ancho máximo */
-    font-family: Arial, sans-serif; /* Fuente del texto */
-    color: #1A1A1A; /* Color del texto */
+  margin: 0 auto;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  color: #1a1a1a;
 }
 
-/* Estilos para los encabezados de nivel 1 */
 h1 {
-    margin-left: 1%;
-    color: #ffffff; /* Color del texto */
-    padding-top: 10px; /* Relleno superior */
-    font-family: Arial, sans-serif; /* Fuente personalizada */
-    font-size: 30px; /* Tamaño de la fuente */
-    margin-bottom: -70px; /* Margen inferior negativo */
-    background-color: black; /* Color de fondo */
+  margin-left: 1%;
+  color: #ffffff;
+  padding-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  margin-bottom: -70px;
+  background-color: black;
 }
 
-/* Estilos para los encabezados de nivel 2 */
 h2 {
-    margin-top: 10px;
-    margin-bottom: 10px; /* Margen inferior */
-    text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
-/* Estilos para los encabezados de nivel 3 */
 h3 {
-    margin-top: 80px;
-    margin-bottom: 40px; /* Margen inferior */
-    text-align: left;
-    margin-left: 6%;
-    font-size: 30px; /* Tamaño de la fuente */
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 30px;
 }
 
-h4{
-    margin-bottom: 50px;
-    text-align: center;
-    margin-top: 5px;
-    font-size: 20px;
+h4 {
+  margin-bottom: 50px;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 20px;
 }
 
 /* Contenedor para la barra superior */
 .container-BarraSuperior {
-    justify-self: center;
-    width: 100%; /* Ancho del contenedor */
-    margin-top: -40px; /* Margen superior negativo */
-    background-color: #000; /* Color de fondo */
-    padding-top: 28px; /* Relleno superior */
-    position: fixed;
-    z-index: 1000;
+  justify-self: center;
+  width: 100%;
+  margin-top: -40px;
+  background-color: #000;
+  padding-top: 28px;
+  position: fixed;
+  z-index: 1000;
 }
 
-/* Estilos para el icono del carrito */
 .icon-cart {
-    width: 40px; /* Ancho del icono */
-    height: 40px; /* Altura del icono */
-    stroke: #0077CC; /* Color del trazo */
-    margin-top: -90px; /* Margen superior negativo */
-    margin-left: 1445px; /* Margen izquierdo */
-    margin-bottom: 45px; /* Margen inferior */
-    
+  width: 40px;
+  height: 40px;
+  stroke: #0077cc;
+  margin-top: -90px;
+  margin-left: 1445px;
+  margin-bottom: 45px;
 }
 .icon-cart:hover {
-    stroke: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #005b99;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
-/* Estilos para otros iconos del carrito */
 .icon-cart2 {
-    width: 40px;
-    height: 40px;
-    stroke: #0077CC;
-    margin-top: 30px;
-    margin-left: 1390px;
-    margin-bottom: 0.1%;
+  width: 40px;
+  height: 40px;
+  stroke: #0077cc;
+  margin-top: 30px;
+  margin-left: 1390px;
+  margin-bottom: 0.1%;
 }
 
 .icon-cart2:hover {
-    stroke: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #005b99;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .icon-cart3 {
-    width: 40px;
-    height: 40px;
-    stroke: #0077CC;
-    margin-top: -70px;
-    margin-left: 1325px;
-    margin-bottom: 1.5%;
+  width: 40px;
+  height: 40px;
+  stroke: #0077cc;
+  margin-top: -70px;
+  margin-left: 1325px;
+  margin-bottom: 1.5%;
 }
 
 .icon-cart3:hover {
-    stroke: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #005b99;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
-/* Estilos para las imágenes */
 img {
-    max-width: 100%; /* Ancho máximo del 100% del contenedor */
+  max-width: 100%;
 }
-
-/* Estilos para el encabezado */
 header {
-    display: flex; /* Utiliza flexbox */
-    justify-content: space-between; /* Distribuye el espacio entre elementos */
-    padding: 30px 0 40px 0; /* Relleno superior e inferior */
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0 40px 0;
 }
 
-/* Contenedor para el icono */
 .container-icon {
-    position: relative; /* Posición relativa */
+  position: relative;
 }
 
 /* Estilos para el contador de productos */
 .count-products {
-    position: absolute; /* Posición absoluta */
-    top: -250%; /* Posición superior negativa */
-    right: 2%; /* Posición derecha */
-    bottom: 30%; /* Posición inferior */
+  position: absolute;
+  top: -250%;
+  right: 2%;
+  bottom: 30%;
 
-    background-color: black; /* Color de fondo */
-    color: white; /* Color del texto */
-    width: 25px; /* Ancho */
-    height: 25px; /* Altura */
+  background-color: black;
+  color: white;
+  width: 25px;
+  height: 25px;
 
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    border-radius: 50%; /* Bordes redondeados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 /* Estilos para el texto del contador de productos */
 #contador-productos {
-    font-size: 16px; /* Tamaño de la fuente */
-    font-family: 'Times New Roman', Times, serif; /* Fuente personalizada */
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Contenedor para los productos del carrito */
 .container-cart-products {
-    position: absolute; /* Posición absoluta */
-    top: 50px; /* Posición superior */
-    right: 0; /* Posición derecha */
+  position: fixed;
+  top: 120px;
+  right: 20px;
 
-    background-color: #fff; /* Color de fondo */
-    width: 400px; /* Ancho */
-    z-index: 1; /* Nivel de apilamiento */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20); /* Sombra */
-    border-radius: 10px; /* Bordes redondeados */
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 /* Estilos para cada producto en el carrito */
 .cart-product {
-    display: flex; /* Utiliza flexbox */
-    align-items: center; /* Alinea verticalmente */
-    justify-content: space-between; /* Distribuye el espacio entre elementos */
-    padding: 30px; /* Relleno interno */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20); /* Borde inferior */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* Contenedor para la información del producto en el carrito */
 .info-cart-product {
-    display: flex; /* Utiliza flexbox */
-    justify-content: space-between; /* Distribuye el espacio entre elementos */
-    flex: 0.8; /* Flexibilidad del contenedor */
+  display: flex;
+  justify-content: space-between;
+  flex: 0.8;
 }
 
-/* Estilos para el título del producto en el carrito */
 .titulo-producto-carrito {
-    font-size: 20px; /* Tamaño de la fuente */
+  font-size: 20px;
 }
 
-/* Estilos para el precio del producto en el carrito */
 .precio-producto-carrito {
-    font-weight: 700; /* Peso de la fuente */
-    font-size: 20px; /* Tamaño de la fuente */
-    margin-left: 10px; /* Margen izquierdo */
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
-/* Estilos para la cantidad del producto en el carrito */
 .cantidad-producto-carrito {
-    font-weight: 400; /* Peso de la fuente */
-    font-size: 20px; /* Tamaño de la fuente */
-    padding-right: 7px; /* Relleno derecho */
+  font-weight: 400;
+  font-size: 20px;
+  padding-right: 7px;
 }
 
-/* Estilos para el icono de cerrar */
 .icon-close {
-    width: 25px; /* Ancho del icono */
-    height: 25px; /* Altura del icono */
+  width: 25px;
+  height: 25px;
 }
 
-/* Estilos para el icono de cerrar cuando se pasa el ratón */
 .icon-close:hover {
-    stroke: #E53935; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.2); /* Escala el boton */
+  stroke: #e53935;
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
-/* Contenedor para el total del carrito */
 .cart-total {
-    top: 0%;
-    display: flex; /* Utiliza flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    gap: 20px; /* Espacio entre elementos */
-    margin-top: -55px;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -55px;
 }
 
-/* Estilos para el texto del total del carrito */
 .cart-total h3 {
-    font-size: 20px; /* Tamaño de la fuente */
-    font-weight: 700; /* Peso de la fuente */
+  font-size: 20px;
+  font-weight: 700;
 }
 
-/* Estilos para el monto total a pagar */
 .total-pagar {
-    font-size: 20px; /* Tamaño de la fuente */
-    font-weight: 900; /* Peso de la fuente */
-    margin-bottom: -40px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: -40px;
 }
 
-/* Clase para ocultar el carrito */
 .hidden-cart {
-    display: none; /* Oculta el elemento */
+  transform: translateX(105%);
+  transition: transform 0.3s ease;
 }
 
 /* Estilos para el contenedor de los items */
 .container-items {
-    display: grid; /* Utiliza grid */
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
-    gap: 20px; /* Espacio entre elementos */
-    width: 88%;
-    justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 88%;
+  justify-self: center;
 }
 
-/* Estilos para cada item */
 .item {
-    border-radius: 10px; /* Bordes redondeados */
+  border-radius: 10px;
 }
 
-/* Efecto hover para cada item */
 .item:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20); /* Sombra */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos para las imágenes de los items */
 .item img {
-    width: 100%; /* Ancho completo */
-    height: 300px; /* Altura fija */
-    object-fit: cover; /* Ajuste de la imagen */
-    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
-    transition: all .5s; /* Transición suave */
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.5s;
 }
 
 /* Estilos para las figuras de los items */
 .item figure {
-    overflow: hidden; /* Oculta el desbordamiento */
+  overflow: hidden;
 }
 
-/* Efecto hover para las imágenes de los items */
 .item:hover img {
-    transform: scale(1.2); /* Escala la imagen */
+  transform: scale(1.2);
 }
 
 /* Estilos para la información del producto */
 .info-product {
-    text-align: left;
-    padding: 15px 30px; /* Relleno interno */
-    line-height: 2; /* Altura de línea */
-    display: flex; /* Utiliza flexbox */
-    flex-direction: column; /* Dirección de los elementos en columna */
-    gap: 10px; /* Espacio entre elementos */
+  text-align: left;
+  padding: 15px 30px;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Estilos para el precio del producto */
 .price {
-    font-size: 18px; /* Tamaño de la fuente */
-    font-weight: 900; /* Peso de la fuente */
+  font-size: 18px;
+  font-weight: 900;
 }
 
-/* Estilos para los botones dentro de la información del producto */
 .btn-add-cart {
-    border: none; /* Sin borde */
-    background: none; /* Sin fondo */
-    background-color: #2E7D32; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 15px 10px; /* Relleno interno */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    border-radius: 15px;
+  border: none;
+  background: none;
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
 .btn-add-cart:hover {
-    background-color: #266e29; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.03); /* Escala el boton */
+  background-color: #266e29;
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 /* Estilos para el botón de finalizar compra */
 .finalizar-compra {
-    border: none; /* Sin borde */
-    background: none; /* Sin fondo */
-    background-color: #2E7D32; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 15px 10px; /* Relleno interno */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    margin-left: 140px; /* Margen izquierdo */
-    margin-bottom: 15px; /* Margen inferior */
-    border-radius: 30px; /* Bordes redondeados */
+  border: none;
+  background: none;
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+  margin-left: 140px;
+  margin-bottom: 15px;
+  border-radius: 30px;
 }
 
 .finalizar-compra:hover {
-    background-color: #266e29; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.03); /* Escala el boton */
+  background-color: #266e29;
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
-/* Estilos para el botón de detalles */
 .btn-detalles {
-    border: none; /* Sin borde */
-    background: none; /* Sin fondo */
-    background-color: #0077CC; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 15px 10px; /* Relleno interno */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    border-radius: 15px;
-    width: 100%; /* Ancho del botón */
+  border: none;
+  background: none;
+  background-color: #0077cc;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 100%;
 }
 
 .btn-detalles:hover {
-    background-color: #005B99; /* Color del trazo */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transform: scale(1.03); /* Escala el boton */
+  background-color: #005b99;
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
-/* Estilos para el contenedor vacío del carrito */
 .cart-empty {
-    padding: 20px; /* Relleno interno */
-    text-align: center; /* Texto centrado */
+  padding: 20px;
+  text-align: center;
 }
 
-/* Clase para ocultar elementos */
 .hidden {
-    display: none; /* Oculta el elemento */
+  display: none;
 }
 
-/* Estilos para el pie de página */
 footer {
-    background-color: #000000; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    margin-top: 100px; /* Margen superior */
-    padding: 10px 20px; /* Relleno */
-    text-align: center; /* Alineación del texto */
+  background-color: #000000;
+  color: #fff;
+  margin-top: 100px;
+  padding: 10px 20px;
+  text-align: center;
 }
-
 
 /* estilos de los mensajes de error  */
 .notificacion {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #2E7D32;
+  background-color: #2e7d32;
   color: white;
   padding: 15px 20px;
   border-radius: 8px;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   z-index: 9999;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }

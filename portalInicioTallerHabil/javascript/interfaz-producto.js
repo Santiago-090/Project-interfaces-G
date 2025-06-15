@@ -1,44 +1,34 @@
-// se obtiene la infomacion de los contenedores 
-const btnCart = document.querySelector(".container-cart-icon");
-const containerCartProducts = document.querySelector(
-  ".container-cart-products"
-);
+const btnCart = document.querySelector('.container-cart-icon');
+const containerCartProducts = document.querySelector('.container-cart-products');
 
-// se crea un evento para agregar al carrito 
-btnCart.addEventListener("click", () => {
-  containerCartProducts.classList.toggle("hidden-cart");
+btnCart.addEventListener('click', () => {
+  containerCartProducts.classList.toggle('hidden-cart');
 });
 
-// variables del nombre del producto 
-const cartInfo = document.querySelector(".cart-product");
-const rowProduct = document.querySelector(".row-product");
+const cartInfo = document.querySelector('.cart-product');
+const rowProduct = document.querySelector('.row-product');
 
-// Lista de todos los contenedores de productos
-const productsList = document.querySelector(".container-items");
+const productsList = document.querySelector('.container-items');
 
-// Variable de arreglos de Productos
 let allProducts = [];
 
-// las variables de los contadores del carrito 
-const valorTotal = document.querySelector(".total-pagar");
-const countProducts = document.querySelector("#contador-productos");
-const cartEmpty = document.querySelector(".cart-empty");
-const cartTotal = document.querySelector(".cart-total");
+const valorTotal = document.querySelector('.total-pagar');
+const countProducts = document.querySelector('#contador-productos');
+const cartEmpty = document.querySelector('.cart-empty');
+const cartTotal = document.querySelector('.cart-total');
 
 // Manejador de evento para el botón de agregar al carrito
-productsList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-add-cart")) {
+productsList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btn-add-cart')) {
     const product = e.target.parentElement;
 
     const infoProduct = {
       quantity: 1,
-      title: product.querySelector("h2").textContent,
-      price: product.querySelector("p").textContent,
+      title: product.querySelector('h2').textContent,
+      price: product.querySelector('p').textContent
     };
 
-    const exits = allProducts.some(
-      (product) => product.title === infoProduct.title
-    );
+    const exits = allProducts.some((product) => product.title === infoProduct.title);
 
     if (exits) {
       const products = allProducts.map((product) => {
@@ -54,47 +44,47 @@ productsList.addEventListener("click", (e) => {
       allProducts = [...allProducts, infoProduct];
     }
 
-     mostrarNotificacion(); showHTML();
+    mostrarNotificacion();
+    showHTML();
+
+    document.dispatchEvent(new CustomEvent('productAddedToCart'));
   }
 });
 
-// se hace un evento para ocultar la ventana del carrito 
-rowProduct.addEventListener("click", (e) => {
-  if (e.target.classList.contains("icon-close")) {
+// se hace un evento para ocultar la ventana del carrito
+rowProduct.addEventListener('click', (e) => {
+  if (e.target.classList.contains('icon-close')) {
     const product = e.target.parentElement;
-    const title = product.querySelector("p").textContent;
+    const title = product.querySelector('p').textContent;
 
     allProducts = allProducts.filter((product) => product.title !== title);
 
-    // console.log(allProducts);
-
-    mostrarNotificacion(); showHTML();
+    mostrarNotificacion();
+    showHTML();
     mostrarMensajeEliminacion(`"${title}" fue eliminado del carrito.`);
-
   }
 });
 
 // Funcion para mostrar  HTML
 const showHTML = () => {
   if (!allProducts.length) {
-    cartEmpty.classList.remove("hidden");
-    rowProduct.classList.add("hidden");
-    cartTotal.classList.add("hidden");
+    cartEmpty.classList.remove('hidden');
+    rowProduct.classList.add('hidden');
+    cartTotal.classList.add('hidden');
   } else {
-    cartEmpty.classList.add("hidden");
-    rowProduct.classList.remove("hidden");
-    cartTotal.classList.remove("hidden");
+    cartEmpty.classList.add('hidden');
+    rowProduct.classList.remove('hidden');
+    cartTotal.classList.remove('hidden');
   }
 
-  // Limpiar HTML
-  rowProduct.innerHTML = "";
+  rowProduct.innerHTML = '';
 
   let total = 0;
   let totalOfProducts = 0;
 
   allProducts.forEach((product) => {
-    const containerProduct = document.createElement("div");
-    containerProduct.classList.add("cart-product");
+    const containerProduct = document.createElement('div');
+    containerProduct.classList.add('cart-product');
 
     containerProduct.innerHTML = `
             <div class="info-cart-product">
@@ -128,84 +118,73 @@ const showHTML = () => {
   countProducts.innerText = totalOfProducts;
 };
 
-
 function irAPagina_Detalles_accesorios() {
-  // Redireccionar a producto-individual-accesorios.html
-  window.location.href = "producto-individual-accesorios.html";
+  window.location.href = 'producto-individual-accesorios.html';
 }
 
 function irAPagina_Detalles_camisetas() {
-  // Redireccionar a producto-individual-camisetas.html
-  window.location.href = "producto-individual-camisetas.html";
+  window.location.href = 'producto-individual-camisetas.html';
 }
 
 function irAPagina_Detalles_gorras() {
-  // Redireccionar a producto-individual-gorras.html
-  window.location.href = "producto-individual-gorras.html";
+  window.location.href = 'producto-individual-gorras.html';
 }
 
 function irAPagina_Detalles_pantalones() {
-  // Redireccionar a producto-individual-pantalones.html
-  window.location.href = "producto-individual-pantalones.html";
+  window.location.href = 'producto-individual-pantalones.html';
 }
 
 function irAPagina_Detalles_perfumeria() {
-  // Redireccionar a producto-individual-perfumeria.html
-  window.location.href = "producto-individual-perfumeria.html";
+  window.location.href = 'producto-individual-perfumeria.html';
 }
 
 // funcion para validar si el carrito tiene productos 
 function irAPagina_pago() {
   if (allProducts.length === 0) {
-    mostrarMensajeError("Debes añadir al menos un producto al carrito antes de pagar.");
+    mostrarMensajeError('Debes añadir al menos un producto al carrito antes de pagar.');
     return;
   }
 
-  window.location.href = "pago.html";
+  window.location.href = 'pago.html';
 }
 
-
-// funcion para mostrar la notificacion 
 function mostrarNotificacion() {
-  const noti = document.getElementById("notificacion");
-  noti.classList.remove("hidden");
-  noti.classList.add("show");
+  const noti = document.getElementById('notificacion');
+  noti.classList.remove('hidden');
+  noti.classList.add('show');
 
   setTimeout(() => {
-    noti.classList.remove("show");
-    noti.classList.add("hidden");
-  }, 5000); // Ocultar después de 2 segundos
-}
-
-// funcion para mostrar el mensaje de error 
-function mostrarMensajeError(texto) {
-  const noti = document.getElementById("notificacion");
-  noti.innerText = texto;
-  noti.style.backgroundColor = "#E53935"; // rojo
-  noti.classList.remove("hidden");
-  noti.classList.add("show");
-
-  setTimeout(() => {
-    noti.classList.remove("show");
-    noti.classList.add("hidden");
-    noti.innerText = "Producto añadido al carrito 🛒";
-    noti.style.backgroundColor = "#2E7D32"; // vuelve al verde
+    noti.classList.remove('show');
+    noti.classList.add('hidden');
   }, 5000);
 }
 
-
-// funcion de Notificacion de eliminacion 
-function mostrarMensajeEliminacion(texto) {
-  const noti = document.getElementById("notificacion");
+function mostrarMensajeError(texto) {
+  const noti = document.getElementById('notificacion');
   noti.innerText = texto;
-  noti.style.backgroundColor = "#FFA000"; // color ámbar
-  noti.classList.remove("hidden");
-  noti.classList.add("show");
+  noti.style.backgroundColor = '#E53935';
+  noti.classList.remove('hidden');
+  noti.classList.add('show');
 
   setTimeout(() => {
-    noti.classList.remove("show");
-    noti.classList.add("hidden");
-    noti.innerText = "Producto añadido al carrito 🛒";
-    noti.style.backgroundColor = "#2E7D32"; // restablece a verde
+    noti.classList.remove('show');
+    noti.classList.add('hidden');
+    noti.innerText = 'Producto añadido al carrito 🛒';
+    noti.style.backgroundColor = '#2E7D32';
+  }, 5000);
+}
+
+function mostrarMensajeEliminacion(texto) {
+  const noti = document.getElementById('notificacion');
+  noti.innerText = texto;
+  noti.style.backgroundColor = '#FFA000';
+  noti.classList.remove('hidden');
+  noti.classList.add('show');
+
+  setTimeout(() => {
+    noti.classList.remove('show');
+    noti.classList.add('hidden');
+    noti.innerText = 'Producto añadido al carrito 🛒';
+    noti.style.backgroundColor = '#2E7D32';
   }, 5000);
 }
