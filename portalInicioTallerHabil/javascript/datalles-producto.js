@@ -1,4 +1,3 @@
- // Variable de arreglos de Productos
 let allProducts = [];
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -6,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const containerCartProducts = document.querySelector('.container-cart-products');
     const botonAgregar = document.querySelector('.container4 button');
     const inputCantidad = document.querySelector('.formulario__input');
-    const contadorProductos = document.getElementById('contador-productos');
     const cartEmpty = document.querySelector('.cart-empty');
     const rowProduct = document.querySelector('.row-product');
     const cartTotal = document.querySelector('.cart-total');
@@ -50,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (excede) {
                     mostrarNotificacion(`No puedes añadir más de ${CANTIDAD_MAXIMA} unidades disponibles.`, "#E53935");
-                    return; // <- importante para evitar mostrar 'añadido' si no se añadió
+                    return;
                 }
 
             allProducts = [...products];
