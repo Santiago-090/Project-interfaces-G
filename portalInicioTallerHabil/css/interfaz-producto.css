@@ -139,13 +139,23 @@ header {
   position: fixed;
   top: 120px;
   right: 20px;
-
   background-color: #fff;
   z-index: 1000;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   max-height: 80vh;
   overflow-y: auto;
+  width: 380px;
+  padding: 10px 0;
+}
+
+/* Encabezado del carrito */
+.cart-header {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #f0f0f0;
+  margin: 0 15px 10px;
+  color: #333;
 }
 
 /* Estilos para cada producto en el carrito */
@@ -153,60 +163,85 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .info-cart-product {
   display: flex;
-  justify-content: space-between;
-  flex: 0.8;
+  align-items: center;
+  width: 85%;
 }
 
 .titulo-producto-carrito {
-  font-size: 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .precio-producto-carrito {
   font-weight: 700;
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 16px;
+  text-align: right;
+  min-width: 70px;
 }
 
 .cantidad-producto-carrito {
-  font-weight: 400;
-  font-size: 20px;
-  padding-right: 7px;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-close {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 3px;
+  box-sizing: content-box;
+  transition: all 0.2s ease;
 }
 
 .icon-close:hover {
   stroke: #e53935;
-  cursor: pointer;
-  transform: scale(1.2);
+  background-color: #f0f0f0;
+  transform: scale(1.1);
 }
 
 .cart-total {
-  top: 0%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: -55px;
+  padding: 15px 20px;
+  border-top: 2px solid #f0f0f0;
+  margin-top: 10px;
+  background-color: #f8f8f8;
+  border-radius: 0 0 10px 10px;
 }
 
 .cart-total h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
+  margin: 0;
 }
 
 .total-pagar {
   font-size: 20px;
   font-weight: 900;
-  margin-bottom: -40px;
+  color: #2e7d32;
 }
 
 .hidden-cart {
@@ -281,21 +316,25 @@ header {
 
 /* Estilos para el botón de finalizar compra */
 .finalizar-compra {
+  display: block;
   border: none;
-  background: none;
   background-color: #2e7d32;
   color: #fff;
-  padding: 15px 10px;
+  padding: 12px 20px;
   cursor: pointer;
-  margin-left: 140px;
-  margin-bottom: 15px;
+  margin: 10px auto;
   border-radius: 30px;
+  width: 80%;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .finalizar-compra:hover {
   background-color: #266e29;
-  cursor: pointer;
-  transform: scale(1.03);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .btn-detalles {
@@ -318,6 +357,8 @@ header {
 .cart-empty {
   padding: 20px;
   text-align: center;
+  color: #777;
+  font-style: italic;
 }
 
 .hidden {

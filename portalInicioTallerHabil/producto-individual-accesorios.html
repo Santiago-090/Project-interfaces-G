@@ -48,13 +48,27 @@
                                 <p class="titulo-producto-carrito"></p>
                                 <span class="precio-producto-carrito"></span>
                             </div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="icon-close"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
                         </div>
                     </div>
                     <div class="cart-total hidden"> 
                         <h3>Total:</h3>
                         <span class="total-pagar"></span>
                     </div>
-                    <p class="cart-empty"></p>
+                    <p class="cart-empty">El carrito está vacío</p>
                     <button onclick="irAPagina_pago()" type="submit" class="finalizar-compra">Finalizar Compra</button>
                 </div>
             </div>
@@ -104,14 +118,14 @@
         </div>
         <div class="agregar">
         <div class="container3">
-            <label for="id_grabacion" class="formulario__label">Cantidad a comprar:</label>
+            <label for="formulario__input" class="formulario__label">Cantidad a comprar:</label>
                 <div class="formulario__grupo-input">
-                    <input type="number" class="formulario__input" name="formulario__input" id="formulario__input" placeholder="0" value="0" min="0" max="10">
+                    <input type="number" class="formulario__input" name="cantidad" id="formulario__input" placeholder="0" value="0" min="0" max="10">
 					</div>
                 </div>
         </div>
         <div class="container4">
-            <button class="btn-add-cart" href="#">Añadir al carrito</button>
+            <button class="btn-add-cart" type="button">Añadir al carrito</button>
             <button class="regresar" onclick="irAPagina_indice()" type="button">Regresar a categorias</button>
         </div>
         </div>
